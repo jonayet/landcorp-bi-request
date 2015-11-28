@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Business Intelligence Request Form</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- jQuery DateTime Picker -->
+    <!-- http://xdsoft.net/jqplugins/datetimepicker/ -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css" />
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+
+    <!-- TextArea Counter Plugin, https://github.com/aaronrussell/jquery-simply-countable/ -->
+    <script type="text/javascript" charset="utf-8"  src="js/jquery.simplyCountable.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            /* scripts run after document loaded -- */
+            var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure",
+                "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript",
+                "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
+
+            $('#dateRequested').datetimepicker({timepicker:false, format:'d/m/Y'});;
+            $('#dateRequired').datetimepicker({timepicker:false, format:'d/m/Y'});
+            $('#dateReviewed').datetimepicker({timepicker:false, format:'d/m/Y'});
+
+            $( "#nameOfRequestor" ).autocomplete({ source: availableTags });
+            $( "#executiveSponsor" ).autocomplete({ source: availableTags });
+
+            $("#additionalComments").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#counterAdditionalComments' });
+            $("#txOne").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxOne' });
+            $("#txTwo").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxTwo' });
+            $("#txThree").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxThree' });
+            $("#txFour").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxFour' });
+            $("#txFive").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxFive' });
+            $("#txSix").simplyCountable({ strictMax : true, maxCount: 4000, counter: '#ctxSix' });
+
+
+        });
+
+
+    </script>
+
+    <style>
+            /* custom style sheet */
+        body{ font-family: "Gotham", "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <h1>Business Intelligence Request Form</h1>
+        </div>
+    </div>
+
+    <hr/>
+
+    <form class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Name of Requestor</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="nameOfRequestor" placeholder="Name of Requestor">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Date Requested</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="dateRequested" placeholder="Date Requested">
+                    </div>
+
+                    <label for="" class="col-sm-3 control-label">Date Required</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" id="dateRequired" placeholder="Date Required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Executive Sponsor</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="executiveSponsor" placeholder="Executive Sponsor">
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Request Name</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="3" placeholder="Request Name"></textarea>
+                    </div>
+                </div>
+
+                <hr/>
+                <label for="" class="col-sm-3 control-label">Request Type</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        New Request
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        Modification
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        Enhancement
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                        Replacement
+                    </label>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <hr/>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">What is the nature of the request?</label>
+                        <p class="text-muted text-right">Enter a brief description of the requirements</p>
+                    </div>
+
+                    <div class="col-sm-8 col-sm">
+                        <textarea class="form-control" rows="4" id="txFive"
+                                  placeholder="Enter a brief description of the requirements"></textarea>
+                        <p class="small text-muted">You have <span id="ctxFive"></span> letters left.</p>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">What information do you require?</label>
+                        <p class="text-muted text-right">Please supply a mocked up version of the request and
+                            list the fields that you want displayed. Is there a current report
+                            you would like this based on?</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="txFour"
+                                  placeholder="Is there a current report you'd like this based on?"></textarea>
+                        <p class="small text-muted">You have <span id="ctxFour"></span> letters left.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">What parameters are required?</label>
+                        <p class="text-muted text-right">e.g. Farm, date range etc.</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="txThree"
+                                  placeholder="E.g. Farm, date range etc."></textarea>
+                        <p class="small text-muted">You have <span id="ctxThree"></span> letters left.</p>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Please indicate any sorting/order/grouping requirements</label>
+                        <p class="text-muted text-right">e.g. sort alphabetically, group by department</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="txTwo"
+                                  placeholder="e.g. sort alphabetically, group by department"></textarea>
+                        <p class="small text-muted">You have <span id="ctxTwo"></span> letters left.</p>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Who do you want to access the information?</label>
+                        <p class="text-muted text-right">List all people or groups of people we will have permissions to run the report</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="txOne"
+                                  placeholder="List all people or groups of people we will have permissions to run the report"></textarea>
+                        <p class="small text-muted">You have <span id="ctxOne"></span> letters left.</p>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Additional Comments:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="additionalComments"
+                                  placeholder="Additional Comments:"></textarea>
+                        <p class="small text-muted">You have <span id="counterAdditionalComments"></span> letters left.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr/>
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Business Intelligence Section: Internal use only</h3>
+            </div>
+        </div>
+
+        <hr/>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Date Reviewed</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="dateReviewed" placeholder="">
+                    </div>
+
+                    <label for="" class="col-sm-3 control-label">Estimated Hours</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="" placeholder="Hours">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Business Case ID</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="" placeholder="Business Case ID">
+                    </div>
+                </div>
+
+                <hr/>
+                <table class="table">
+                    <caption>Sign Off Process (Change Control)</caption>
+                    <thead>
+                    <tr>
+                        <th>Approval</th>
+                        <th>Name</th>
+                        <th>Signature</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Executive Sponsor</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Development</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">User Acceptance Testing</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Release</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Comments:</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" rows="4" id="txSix"
+                                  placeholder="Additional Comments:"></textarea>
+                        <p class="small text-muted">You have <span id="ctxSix"></span> letters left.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <hr/>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-primary btn-lg">Submit Form</button>
+            <hr/>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

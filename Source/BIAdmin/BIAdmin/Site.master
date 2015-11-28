@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" EnableTheming="true" Inherits="SiteMaster"
+    CodeBehind="Site.master.cs" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/App_Themes/Theme/SiteStyle.css?t=<%= DateTime.Now.Ticks %>" rel="stylesheet"
+        type="text/css" />
+    <link href="App_Themes/Theme/ui.dropdownchecklist.standalone.css?t=<%= DateTime.Now.Ticks %>"
+        rel="stylesheet" type="text/css" />
+    <link href="App_Themes/Theme/ui.dropdownchecklist.themeroller.css?t=<%= DateTime.Now.Ticks %>"
+        rel="stylesheet" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <link href="jqwidgets/styles/jqx.base.css?t=<%= DateTime.Now.Ticks %>" rel="stylesheet" type="text/css" />
+    <link href="jqwidgets/styles/jqx.ui-redmond.css?t=<%= DateTime.Now.Ticks %>" rel="stylesheet" type="text/css" />
+</head>
+<body onmousemove="SetProgressPosition(event)">
+    <form id="Form1" runat="server">
+    <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePageMethods="true">
+    </cc1:ToolkitScriptManager>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var xPos, yPos;
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_beginRequest(BeginRequestHandler);
+        prm.add_endRequest(EndRequestHandler);
+
+        function BeginRequestHandler(sender, args) {
+            xPos = document.documentElement.scrollLeft;
+            yPos = document.documentElement.scrollTop;
+        }
+
+        function EndRequestHandler(sender, args) {
+            document.documentElement.scrollLeft = xPos;
+            document.documentElement.scrollTop = yPos;
+        }
+
+        function ShowPopup(hoveritem) {
+            //            hp = document.getElementById("divLinks");
+            //            hp.style.display = 'block';
+        }
+
+        function HidePopup() {
+            //            hp = document.getElementById("divLinks");
+            //            hp.style.display = 'none';
+        }
+
+        function SetProgressPosition(e) {
+            var posx = 0;
+            var posy = 0;
+            if (!e) var e = window.event;
+            if (e.pageX || e.pageY) {
+                posx = e.pageX;
+                posy = e.pageY;
+            }
+            else if (e.clientX || e.clientY) {
+                posx = e.clientX + document.documentElement.scrollLeft;
+                posy = e.clientY + document.documentElement.scrollTop;
+            }
+            document.getElementById('divProgress').style.left = posx - 8 + "px";
+            document.getElementById('divProgress').style.top = posy - 8 + "px";
+        }
+
+
+    </script>
+    <asp:UpdateProgress ID="UpdateProgress" runat="server" AssociatedUpdatePanelID="MainUpdatePanel"
+        DisplayAfter="0">
+        <ProgressTemplate>
+            <div id="divProgress" runat="server" class="overlay">
+                <img id="Img1" src="~/Images/loader.gif" alt="" runat="server" />
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    <div id="divHeader" class="Header" runat="server">
+        <asp:Label ID="lbl_Title" runat="server" Text="Finance Administration" CssClass="HeaderTitle"></asp:Label>
+        <div id="divHeaderSubTitle" class="HeaderSubTitle" runat="server">
+            <asp:Label ID="lbl_UserName" runat="server" CssClass="HeaderSubTitle" OnLoad="lbl_UserName_Load"></asp:Label>
+        </div>
+        <div id="divMenuBar" class="HeaderMenu" runat="server">
+            <asp:Menu ID="WebMenu" runat="server" Orientation="Horizontal" CssClass="Menu">
+            </asp:Menu>
+        </div>
+    </div>
+    <asp:UpdatePanel ID="MainUpdatePanel" runat="server">
+        <ContentTemplate>
+            <div id="divMainContent" class="MainContent">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:HiddenField ID="hf_LinksVisible" runat="server" Value="0" />
+    </form>
+</body>
+</html>

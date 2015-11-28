@@ -1,0 +1,1113 @@
+﻿body
+{
+    margin: 0;
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+}
+
+.Header
+{
+    width: 100%;
+    clear: both;
+    background: url("./Images/topshape.jpg");
+    background-size: 100%;
+}
+
+.HeaderTitle
+{
+    font-size: 16pt;
+}
+
+.HeaderSubTitle
+{
+    font-size: 8pt;
+    color: DimGray;
+    float: right;
+    text-align:right;
+}
+
+.Button
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+}
+
+.HeaderMenu
+{
+}
+
+.LeftCol
+{
+    float: left;
+    width: 100;
+    display: none;
+}
+
+.MainContent
+{
+    padding: 10px;
+}
+
+.popup-div-background
+{
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: 9000004;
+    position: absolute;
+}
+
+.FVPanel
+{
+    padding: 5pt;
+    border: 1pt solid black;
+}
+
+.popup-div-front
+{
+    background-color: White;
+    color: black;
+    width: 50%;
+    height: 50%;
+    min-height: 250px;
+    min-width: 250px;
+    text-align: left;
+    vertical-align: middle;
+    top: 25%;
+    left: 25%;
+    bottom: 25%;
+    font-weight: bold;
+    padding: 10px 5px 5px 5px;
+    font-family: Tahoma;
+    z-index: 9000005;
+    position: absolute;
+}
+
+.DetailsLabel
+{
+    font-size: 8pt;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.DateLabel
+{
+    font-size: 14pt;
+    font-weight: bold;
+    color: #666666;
+    padding: 5px;
+}
+
+.UnAuthorisedLabel
+{
+    font-size: 14pt;
+    font-weight: bold;
+    color: Red;
+    padding: 5px;
+}
+
+div.UnAuthorisedDiv
+{
+    width: 100%;
+    margin-top: 25%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Label
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding-left: 2px;
+    padding-right: 2px;
+    word-wrap: no-wrap;
+}
+
+.FuelDateLabel
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding-left: 2px;
+    padding-right: 2px;
+    word-wrap: no-wrap;
+}
+
+.LabelDisabled
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding-left: 2px;
+    padding-right: 2px;
+    word-wrap: no-wrap;
+    color: Gray;
+}
+
+.LabelDisabled
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding-left: 2px;
+    padding-right: 2px;
+    word-wrap: no-wrap;
+    color: Gray;
+}
+
+.Textbox
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding: 2px;
+    border-style: inset;
+    color: Black;
+}
+
+.Textbox::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+
+}
+
+.TextboxDisabled
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    padding: 2px;
+    border-style: none;
+    background-color: transparent;
+}
+
+.TextboxDisabled::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.TextboxRight
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    text-align: right;
+    padding: 2px;
+    border-style: inset;
+    background-color: White;
+}
+
+.TextboxRight::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.TextboxRightIncorrect
+{
+    background-color: Orange !important;
+    font-family: Tahoma;
+    font-size: 8pt;
+    text-align: right;
+    padding: 2px;
+    border-style: inset;
+}
+
+.TextboxRightIncorrect::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.TextboxRightDisabled
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    text-align: right;
+    padding: 2px;
+    border-style: none !important;
+    background-color: transparent !important;
+    color: Gray;
+}
+
+.TextboxRightDisabled::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.LabelRight
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    text-align: right;
+    padding-right: 3px;
+}
+
+.Label_gv_Actual
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: Black;
+    padding: 2px;
+}
+
+.Label_gv_Projection
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: Gray;
+    padding: 2px;
+}
+
+.DropdownList
+{
+    padding-left: 2px;
+    font-family: Tahoma;
+    font-size: 8pt;
+    color: Black;
+}
+
+.GridViewStyle
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    border: 1px solid grey;
+    padding: 3px;
+}
+
+.GridViewStyle a
+{
+}
+
+.GridViewHeaderStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    color: White;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.GridViewHeaderStyle td, th
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.GridViewHeaderStyle a
+{
+    color: White;
+}
+
+.GridViewFooterStyle
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+    padding: 3px;
+}
+
+.GridViewFooterStyleNotify
+{
+    background-color: #FF3333;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle
+{
+    word-wrap: break-word;
+}
+
+.GridViewAlternatingRowStyle
+{
+    background-color: #EBEBEB;
+    word-wrap: break-word;
+}
+
+.GridViewRowStyle td, .GridViewAlternatingRowStyle td, .GridViewFooterStyle td, GridViewFooterStyleNotify td
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    border: 1px solid Silver;
+    padding-left: 3pt;
+    padding-right: 3pt;
+}
+
+.GridViewSelectedRowStyle
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    border: 1px solid Silver;
+    padding-left: 3pt;
+    padding-right: 3pt;
+    word-wrap: break-word;
+}
+
+.GridViewSelectedRowStyle td
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    border: 1px solid Silver;
+    background-color: #B6FFAD;
+    padding-left: 3pt;
+    padding-right: 3pt;
+}
+
+.GridViewSelectedRowStyle a
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+}
+
+.GridViewPagerStyle
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    background-color: #5D7B9D;
+}
+
+.GridViewPagerStyle a
+{
+    color: White;
+}
+
+.GridViewPagerStyle table
+{
+    margin: 0 auto 0 auto;
+}
+
+.GridViewPagerStyle td
+{
+    padding-left: 3pt;
+}
+
+.modalBackground
+{
+    background-color: #ccc;
+    filter: alpha(opacity=70);
+    opacity: 0.7px;
+}
+
+.modalPopup
+{
+    background-color: White !important;
+    border-width: 3px;
+    border-style: solid;
+    border-color: Gray;
+    padding: 20px;
+    max-height: 450px;
+    overflow: auto !important;
+}
+
+div.GrazingTable
+{
+    display: table;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 5px;
+}
+
+div.GrazingTable_Row
+{
+    display: table-row;
+    vertical-align: middle;
+    padding: 5px;
+    border: solid 1px Silver;
+}
+
+div.GrazingTable_HeaderCell
+{
+    vertical-align: middle;
+    border: solid 1px Silver;
+    text-align: center;
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: white;
+    padding: 3px;
+    width: 150px;
+    height: 100%;
+}
+
+div.GrazingTable_DetailCell
+{
+    display: table-cell;
+    padding: 3px;
+    border: solid 1px Silver;
+    text-align: right;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+    width: 65px;
+}
+
+.Hidden
+{
+    display: none;
+}
+
+div.FeedTable
+{
+    display: table;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 5px;
+}
+
+div.FeedTable_Row
+{
+    display: table-row;
+    vertical-align: middle;
+    padding: 5px;
+    border: solid 1px Silver;
+}
+
+div.FeedTable_HeaderCell
+{
+    display: table-cell;
+    vertical-align: middle;
+    border: solid 1px Silver;
+    text-align: center;
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: white;
+    padding: 3px;
+}
+
+div.FeedTable_DetailCell
+{
+    display: table-cell;
+    padding: 4px;
+    border: solid 1px Silver;
+    text-align: right;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+}
+
+div.TopHalf
+{
+    display: table;
+}
+
+div.TopHalf_Row
+{
+    display: table-row;
+    vertical-align: top;
+}
+
+div.TopHalf_Cell
+{
+    display: table-cell;
+    vertical-align: top;
+    padding: 5pt;
+}
+
+div.Spacer
+{
+    display: table-row;
+    height: 10pt;
+}
+
+.used
+{
+    background-color: Green;
+    height: 15px;
+    float: left;
+    clear: both;
+}
+
+.remaining
+{
+    background-color: white;
+    height: 15px;
+}
+
+.TabPanelHeader
+{
+    padding-top: 10px !important;
+}
+/*Header*/
+
+.Tab .ajax__tab_header
+{
+}
+
+/*Body*/
+
+.Tab .ajax__tab_body
+{
+    border: 1px solid Silver;
+    padding: 5px;
+    height: 100%;
+}
+
+/*Tab Active*/
+
+.Tab .ajax__tab_active .ajax__tab_tab
+{
+    color: Black;
+    font-weight: bold;
+    background: url("./Images/menu_bg.gif") repeat-x;
+}
+
+.Tab .ajax__tab_active .ajax__tab_inner
+{
+    background: url("./Images/menu_bg.gif") repeat-x;
+}
+
+.Tab .ajax__tab_active .ajax__tab_outer
+{
+    background: url("./Images/menu_bg.gif") repeat-x;
+}
+
+/*Tab Hover*/
+
+.Tab .ajax__tab_hover .ajax__tab_tab
+{
+    color: White;
+}
+
+/*Tab Inactive*/
+
+.Tab .ajax__tab_tab
+{
+    color: Black;
+    background: url("./Images/menu_bg.gif") repeat-x;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.Tab .ajax__tab_outer
+{
+    margin-right: 2px;
+}
+
+.MissingReads
+{
+    background-color: Red;
+    border-left: 2pt Solid Red;
+    border-right: 2pt Solid Red;
+}
+
+.Menu
+{
+}
+
+.Menu ul
+{
+    background: #7795BD;
+}
+
+.Menu ul li ul
+{
+    display: none;
+}
+
+.Menu ul li
+{
+    background: #7795BD url("./Images/menu_bg.gif") repeat-x;
+    text-align: center; /* set width if needed.*/
+    width: 150px;
+    height: 10;
+}
+
+.Menu ul li a
+{
+    color: black;
+    padding: 4px 2px 4px;
+    padding-left: 8px !important;
+    border: 1px solid #648ABD;
+    border-bottom: 0;
+}
+
+.Menu ul li a:hover
+{
+    background-image: none;
+    color: White;
+}
+
+.Menu ul li a
+{
+    color: Black;
+}
+
+.ToolTip
+{
+    z-index:100000000;
+    background-color:White;
+}
+
+.DetailsTable table
+{
+    border-collapse: collapse;
+    border: 1pt solid silver;
+    background-color: White;
+    color: black;
+}
+
+.DetailsTable td
+{
+    border-collapse: collapse;
+    border: 1pt solid silver;
+    background-color: White;
+    color: black;
+    white-space: nowrap;
+}
+
+.UsageTable
+{
+    border-collapse: collapse;
+}
+
+.UsageTableRow
+{
+    border-collapse: collapse;
+}
+
+.OffRoadLoggedCell
+{
+    background-color: #0E8F00 !important;
+    border: 1px solid #0E8F00 !important;
+}
+
+.OffRoadCell
+{
+    background-color: #16D900 !important;
+    border: 1px solid #16D900 !important;
+}
+
+.OnRoadCell
+{
+    background-color: #9E9E9E !important;
+    border: 1px solid #9E9E9E !important;
+}
+
+.RefundCell
+{
+    background-color: #51BBFC !important;
+    border: 1px solid #51BBFC !important;
+}
+
+.UnsuedCell
+{
+    background-color: Transparent !important;
+    border: 1px solid Transparent !important;
+}
+
+.MonthlyInputTable
+{
+    border-collapse: collapse;
+    border-spacing: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.MonthlyInputRow
+{
+    border-collapse: collapse;
+    border-spacing: 0px;
+    height: 15pt;
+    width: 100%;
+    padding: 0;
+}
+
+.UsagePanel
+{
+    min-height: 15pt;
+    border: 1px solid Black;
+    width: 100%;
+}
+
+.MonthlyInputCellMissingPointer
+{
+    background-color: Red;
+    border: 1pt Ridge Black;
+    cursor: pointer;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellMissing
+{
+    background-color: Red;
+    border: 1pt Ridge Black;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellOKPointer
+{
+    background-color: ForestGreen;
+    border: 1pt Ridge Black;
+    cursor: pointer;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellOK
+{
+    background-color: ForestGreen;
+    border: 1pt Ridge Black;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellInconsistantPointer
+{
+    background-color: Blue;
+    border: 1pt Ridge Black;
+    cursor: pointer;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellNA
+{
+    background-color: Silver;
+    border: 1pt Ridge Black;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellNAPointer
+{
+    background-color: Silver;
+    border: 1pt Ridge Black;
+    cursor: pointer;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCellInconsistant
+{
+    background-color: Blue;
+    border: 1pt Ridge Black;
+    border-spacing: 0px;
+}
+
+.MonthlyInputCell
+{
+    border-collapse: collapse;
+    background-color: White;
+    border: 1pt Ridge Black;
+    border-spacing: 0px;
+}
+
+.NaviDatalistPrevious
+{
+    float: left;
+}
+
+.NaviDatalistNext
+{
+    float: right;
+}
+
+.noBorder
+{
+    border-collapse: collapse;
+    border: none;
+}
+
+.NoBorder
+{
+    border: none !important;
+}
+
+.NoBorder tr td
+{
+    border: none !important;
+}
+
+.GridViewStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewHeaderStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewHeaderStyleNoBorder td, th
+{
+    border: 0px none white;
+}
+
+.GridViewFooterStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewRowStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewAlternatingRowStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewRowStyleNoBorder td, .GridViewAlternatingRowStyleNoBorder td, .GridViewFooterStyleNoBorder td, GridViewFooterStyleNotifyNoBorder td
+{
+    border: 0px none white;
+}
+
+.GridViewSelectedRowStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewSelectedRowStyleNoBorder td
+{
+    border: 0px none white;
+}
+
+.GridViewPagerStyleNoBorder
+{
+    border: 0px none white;
+}
+
+.GridViewPagerStyleNoBorder table
+{
+    margin: 0 auto 0 auto;
+}
+
+.GridViewPagerStyleNoBorder td
+{
+    border: 0px none white;
+}
+
+.ajax__calendar_container td
+{
+    padding: 0 !important;
+    margin: 0 !important;
+    border-style: none !important;
+}
+
+.FuelHeaderLeft
+{
+    padding: 1px !important;
+    border-left: 2px solid white !important;
+    border-bottom: 2px solid white !important;
+}
+
+.FuelHeaderCell
+{
+    padding: 1px !important;
+    border: 1px solid white !important;
+    border-bottom: 2px solid white !important;
+}
+
+.FuelHeaderDate
+{
+    padding: 1px !important;
+    border: 2px solid white !important;
+}
+
+.FuelHeaderBlank
+{
+    border: 2px solid white !important;
+    background-color: White;
+}
+
+.FuelCellDate
+{
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+.FuelCell
+{
+    padding: 1px !important;
+}
+
+.FuelCellLeft
+{
+    padding: 1px !important;
+    border-left: 2px solid grey !important;
+}
+
+.FuelHeaderLabel
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    word-wrap: no-wrap;
+    font-weight: normal !important;
+}
+
+.FuelTextbox
+{
+    font-family: Tahoma !important;
+    font-size: 7pt !important;
+    text-align: right !important;
+    background-color: White;
+    border: none !important;
+}
+
+.FuelTextbox::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.FuelTotalTextbox
+{
+    font-family: Tahoma !important;
+    font-size: 8pt !important;
+    text-align: right !important;
+    background-color: White;
+    border: 1px solid black;
+}
+
+.FuelTotalTextbox::-ms-clear 
+{
+    display: none;
+    width : 0;
+    height: 0;
+}
+
+.FuelTotalLabel
+{
+    font-weight: bold !important;
+    padding-right:2px;
+    padding-left:2px;
+}
+
+.FuelTotalHeaderLabel
+{
+    font-family: Tahoma;
+    font-size: 8pt;
+    word-wrap: no-wrap;
+    font-weight: normal !important;
+    padding-right: 1px;
+    padding-left: 1px;
+}
+
+.MatchDropdownList
+{
+    padding-left: 1px;
+    font-family: Tahoma;
+    font-size: 7pt;
+    width: 100%;
+}
+
+.hMenu
+{
+}
+
+.hMenu ul
+{
+    background: #7795BD;
+}
+
+.hMenu ul li ul
+{
+    display: none;
+}
+
+.hMenu ul li
+{
+    background: #7795BD url("./Images/menu_bg.gif") repeat-x;
+    text-align: left;
+}
+
+.hMenu ul li a
+{
+    color: black;
+    padding: 4px;
+    border: 1px solid #648ABD;
+    border-bottom: 0;
+}
+
+.hMenu ul li a:hover
+{
+    background-image: none;
+}
+
+.hMenu ul li a:hover
+{
+    color: White;
+}
+
+.hMenu ul li a
+{
+    color: Black;
+}
+
+.hMenu .static
+{
+    color: transparent;
+    border: none;
+    border-bottom: 0;
+    background-image: none;
+    background: none;
+}
+
+.hMenu .dynamic
+{
+}
+
+.hMenu a.static:hover
+{
+    color: transparent;
+    background-color: Silver;
+}
+
+.hMenu a.static.highlighted
+{
+    color: transparent;
+}
+
+.hMenu a.dynamic.highlighted
+{
+    color:White !important;
+}
+
+.Iframe
+{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+}
+
+.close { 
+    DISPLAY: block;
+    BACKGROUND: url(Images/close.png) no-repeat 0px 0px; 
+    POSITION: absolute; 
+    LEFT: 0px;
+    TOP: 0px;
+    HEIGHT: 20px; 
+    WIDTH: 20px;
+} 
+
+.overlay
+ {
+     border: black 1px solid;
+     padding: 5px;
+     z-index: 1000001;
+     position: absolute;
+     background-color: #fff;
+     -moz-opacity: 0.75;
+     opacity: 0.75;
+     filter: alpha(opacity=75);
+     font-family: Tahoma;
+     font-size: 11px;
+     font-weight: bold;
+     text-align: center;
+ }
