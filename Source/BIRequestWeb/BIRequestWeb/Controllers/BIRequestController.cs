@@ -6,12 +6,84 @@ using System.Web.Mvc;
 
 namespace BIRequestWeb.Controllers
 {
-    public class BIRequestController : Controller
+    public class BiRequestController : Controller
     {
-        // GET: BIRequest
+        // GET:  BiRequest
         public ActionResult Index()
         {
             return View();
+        }
+
+        // GET:  BiRequest/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET:  BiRequest/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST:  BiRequest/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET:  BiRequest/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST:  BiRequest/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET:  BiRequest/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST:  BiRequest/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

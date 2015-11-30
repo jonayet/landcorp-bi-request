@@ -1,0 +1,124 @@
+﻿@model IEnumerable<BIRequestWeb.Models.BiRequest>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRequested)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutiveSponsor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestNature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InformationRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParametersRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupingRequirments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeopleToShare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReviewed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstimatedHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessCaseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRequested)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutiveSponsor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestNature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InformationRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParametersRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupingRequirments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeopleToShare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReviewed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstimatedHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessCaseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
