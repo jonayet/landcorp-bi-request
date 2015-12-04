@@ -22,5 +22,15 @@ namespace BIRequestWeb
         {
             Authentication.SetSessionVariables();
         }
+
+        protected void Application_EndRequest(Object sender, EventArgs e)
+        {
+            HttpContext context = HttpContext.Current;
+            if (context.Response.Status.Substring(0, 3).Equals("401"))
+            {
+                context.Response.ClearContent();
+                //HttpContext.Current.Response.Redirect("Unauthorize");
+            }
+        }
     }
 }

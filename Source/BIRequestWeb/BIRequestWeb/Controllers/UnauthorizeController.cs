@@ -2,7 +2,7 @@
 
 namespace BIRequestWeb.Controllers
 {
-    public class OfflineController : Controller
+    public class UnauthorizeController : Controller
     {
         public ActionResult Index()
         {

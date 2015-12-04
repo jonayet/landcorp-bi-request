@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BIRequestWeb.DAL;
+using BIRequestWeb.Models;
 
 namespace BIRequestWeb.Controllers
 {
     public class BiRequestController : Controller
     {
-        // GET:  BiRequest
+        readonly Repository _repo = new Repository();
+        readonly BiRequestTransformer _transformer = new BiRequestTransformer();
+
         public ActionResult Index()
         {
-            return View();
+            return View(_transformer.ToModels(_repo.Get()));
         }
 
-        // GET:  BiRequest/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_transformer.ToModel(_repo.GetById(id)));
         }
 
-        // GET:  BiRequest/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST:  BiRequest/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(BiRequest requestData)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                _repo.Insert(_transformer.ToEntity(requestData));
                 return RedirectToAction("Index");
             }
             catch
@@ -42,20 +43,17 @@ namespace BIRequestWeb.Controllers
             }
         }
 
-        // GET:  BiRequest/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_transformer.ToModel(_repo.GetById(id)));
         }
 
-        // POST:  BiRequest/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, BiRequest biRequest)
         {
             try
             {
-                // TODO: Add update logic here
-
+                _repo.Update(id, _transformer.ToEntity(biRequest));
                 return RedirectToAction("Index");
             }
             catch
@@ -64,20 +62,17 @@ namespace BIRequestWeb.Controllers
             }
         }
 
-        // GET:  BiRequest/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_transformer.ToModel(_repo.GetById(id)));
         }
 
-        // POST:  BiRequest/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                _repo.Delete(id);
                 return RedirectToAction("Index");
             }
             catch

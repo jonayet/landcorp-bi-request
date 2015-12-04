@@ -17,11 +17,11 @@ namespace BIRequestWeb.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Date Requested")]
-        public DateTime DateRequested { get; set; }
+        public DateTime? DateRequested { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Date Required")]
-        public DateTime DateRequired { get; set; }
+        public DateTime? DateRequired { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Executive Sponsor")]
@@ -34,7 +34,7 @@ namespace BIRequestWeb.Models
     
         [Required(ErrorMessage = "Request Type is required")]
         [Display(Name = "Request Type")]
-        public int RequestType { get; set; }
+        public int? RequestType { get; set; }
         public IEnumerable<SelectListItem> RequestTypes { set; get; }
 
         [DataType(DataType.MultilineText)]
@@ -69,13 +69,13 @@ namespace BIRequestWeb.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Date Reviewed")]
-        public DateTime DateReviewed { get; set; }
+        public DateTime? DateReviewed { get; set; }
 
         [Display(Name = "Estimated Hours")]
-        public int EstimatedHours { get; set; }
+        public int? EstimatedHours { get; set; }
 
         [Display(Name = "Business Case Id")]
-        public int BusinessCaseId { get; set; }
+        public int? BusinessCaseId { get; set; }
 
         [DataType(DataType.MultilineText)]
         [StringLength(500)]
@@ -83,6 +83,6 @@ namespace BIRequestWeb.Models
         public string Comments { get; set; }
 
         [ScaffoldColumn(false)]
-        public int ApprovalStatus { get; set; }
+        public int? ApprovalStatus { get; set; }
     }
 }

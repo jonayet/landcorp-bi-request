@@ -1,0 +1,153 @@
+﻿@model BIRequestWeb.Models.BiRequest
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BiRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRequested)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutiveSponsor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutiveSponsor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestNature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestNature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformationRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformationRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParametersRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParametersRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupingRequirments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupingRequirments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeopleToShare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeopleToShare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReviewed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReviewed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstimatedHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstimatedHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessCaseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessCaseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
