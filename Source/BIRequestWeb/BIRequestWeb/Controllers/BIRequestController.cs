@@ -23,7 +23,7 @@ namespace BIRequestWeb.Controllers
             return View(_transformer.ToModel(_repo.GetById(id)));
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
