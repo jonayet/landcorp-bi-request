@@ -7,22 +7,56 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BiRequestWeb
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace BiRequestWeb {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
-        /// HeadContent control.
+        /// divHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHeader;
+        
+        /// <summary>
+        /// divMenuBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMenuBar;
+        
+        /// <summary>
+        /// WebMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu WebMenu;
+        
+        /// <summary>
+        /// lbl_Title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Title;
+        
+        /// <summary>
+        /// lbl_UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_UserName;
+        
         /// <summary>
         /// MainContent control.
         /// </summary>

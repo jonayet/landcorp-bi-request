@@ -9,8 +9,9 @@
 
 
 
-public partial class SiteMaster {
-    
+public partial class Unauthorised
+{
+
     /// <summary>
     /// Head1 control.
     /// </summary>
@@ -19,94 +20,67 @@ public partial class SiteMaster {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-    
+
     /// <summary>
-    /// Form1 control.
+    /// form1 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
-    
+    protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
     /// <summary>
-    /// MainScriptManager control.
+    /// img_Unauthorised control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.ScriptManager MainScriptManager;
-    
+    protected global::System.Web.UI.WebControls.Image img_Unauthorised;
+
     /// <summary>
-    /// UpdateProgress control.
+    /// lbl_Header control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.UpdateProgress UpdateProgress;
-    
+    protected global::System.Web.UI.WebControls.Label lbl_Header;
+
     /// <summary>
-    /// divHeader control.
+    /// lbl_Name control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHeader;
-    
+    protected global::System.Web.UI.WebControls.Label lbl_Name;
+
     /// <summary>
-    /// lbl_Title control.
+    /// Label2 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lbl_Title;
-    
+    protected global::System.Web.UI.WebControls.Label Label2;
+
     /// <summary>
-    /// lbl_UserName control.
+    /// gv_AppOwners control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lbl_UserName;
-    
+    protected global::System.Web.UI.WebControls.GridView gv_AppOwners;
+
     /// <summary>
-    /// divMenuBar control.
+    /// ds_AppOwners control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMenuBar;
-    
-    /// <summary>
-    /// WebMenu control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Menu WebMenu;
-    
-    /// <summary>
-    /// MainUpdatePanel control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.UpdatePanel MainUpdatePanel;
-    
-    /// <summary>
-    /// MainContent control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+    protected global::System.Web.UI.WebControls.SqlDataSource ds_AppOwners;
 }

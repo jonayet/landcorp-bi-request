@@ -6,12 +6,12 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %>- My ASP.NET Application</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,6 +38,13 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <div id="divHeader" runat="server" class="Header">                        
+            <div id="divMenuBar" runat="server">
+                <asp:Menu ID="WebMenu" runat="server" Orientation="Horizontal" CssClass="Menu">
+                </asp:Menu>
+            </div>
+        </div>
+
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -46,7 +53,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/"><asp:Label ID="lbl_Title" runat="server"></asp:Label></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -54,7 +61,7 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
-                    <p class="nav navbar-text navbar-right">Hello, <asp:LoginName runat="server" />!</p>
+                    <p class="nav navbar-text navbar-right"><asp:Label ID="lbl_UserName" runat="server" OnLoad="lbl_UserName_Load"></asp:Label></p>
                 </div>
             </div>
         </div>
@@ -63,7 +70,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>- My ASP.NET Application</p>
             </footer>
         </div>
 
