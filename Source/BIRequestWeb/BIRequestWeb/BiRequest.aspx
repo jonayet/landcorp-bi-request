@@ -6,7 +6,7 @@
     <div class="form-group">
         <label for="" class="col-sm-3 control-label">Name of Requestor</label>
         <div class="col-sm-9">
-            <asp:TextBox runat="server" ID="NameBox" class="form-control" ClientIDMode="Static" SkinID="nameOfRequestor" placeholder="Name of Requestor"/>
+            <asp:TextBox runat="server" ID="NameBox" class="form-control" ClientIDMode="Static" placeholder="Name of Requestor"/>
         </div>
     </div>
 
