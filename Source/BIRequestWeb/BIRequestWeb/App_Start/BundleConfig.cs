@@ -34,12 +34,18 @@ namespace BiRequestWeb
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
 
-            ScriptManager.ScriptResourceMapping.AddDefinition(
-                "respond",
+            ScriptManager.ScriptResourceMapping.AddDefinition("respond",
                 new ScriptResourceDefinition
                 {
                     Path = "~/Scripts/respond.min.js",
                     DebugPath = "~/Scripts/respond.js",
+                });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("bootstrap-datepicker",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/bootstrap-datepicker.min.js",
+                    DebugPath = "~/Scripts/bootstrap-datepicker.js",
                 });
         }
     }

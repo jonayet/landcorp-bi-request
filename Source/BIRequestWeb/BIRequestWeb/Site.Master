@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" class="form-horizontal">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -35,6 +35,7 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+                <asp:ScriptReference Name="bootstrap-datepicker" />
             </Scripts>
         </asp:ScriptManager>
 
