@@ -42,7 +42,7 @@
             </div>
 
             <div class="form-group">
-                <label for="" class="col-md-3 control-label">Request Type</label>
+                <label for="requestType" class="col-md-3 control-label">Request Type</label>
                 <div class="col-md-9">
                     <asp:DropDownList runat="server" ClientIDMode="Static" ID="requestType" class="form-control">
                         <asp:ListItem Selected="True" Value="New Request">New Request</asp:ListItem>
