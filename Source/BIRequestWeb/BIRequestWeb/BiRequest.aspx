@@ -11,87 +11,70 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="" class="col-md-3 control-label">Name of Requestor</label>
+                <label for="nameOfRequestor" class="col-md-3 control-label">Name of Requestor</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="nameOfRequestor" placeholder="Name of Requestor">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="nameOfRequestor" class="form-control" placeholder="Name of Requestor" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="col-md-3 control-label">Date Requested</label>
+                <label for="dateRequested" class="col-md-3 control-label">Date Requested</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control date" id="dateRequested">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="dateRequested" class="form-control date" placeholder="Date Requested" />
                 </div>
 
-                <label for="" class="col-md-3 control-label">Date Required</label>
+                <label for="dateRequired" class="col-md-3 control-label">Date Required</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control date" id="dateRequired">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="dateRequired" class="form-control date" placeholder="Date Required" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="col-md-3 control-label">Executive Sponsor</label>
+                <label for="executiveSponsor" class="col-md-3 control-label">Executive Sponsor</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control" id="executiveSponsor" placeholder="Executive Sponsor">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="executiveSponsor" class="form-control" placeholder="Executive Sponsor" />
                 </div>
             </div>
 
-            <hr />
             <div class="form-group">
-                <label for="" class="col-md-3 control-label">Request Name</label>
+                <label for="requestName" class="col-md-3 control-label">Request Name</label>
                 <div class="col-md-9">
-                    <textarea class="form-control" rows="3" placeholder="Request Name"></textarea>
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="requestName" class="form-control" placeholder="Request Name" />
                 </div>
             </div>
 
-            <hr />
-            <label for="" class="col-md-3 control-label">Request Type</label>
-            <div class="col-md-9">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    New Request
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    Modification
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                    Enhancement
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                    Replacement
-                </label>
+            <div class="form-group">
+                <label for="" class="col-md-3 control-label">Request Type</label>
+                <div class="col-md-9">
+                    <asp:DropDownList runat="server" ClientIDMode="Static" ID="requestType" class="form-control">
+                        <asp:ListItem Selected="True" Value="New Request">New Request</asp:ListItem>
+                        <asp:ListItem Value="Modification">Modification</asp:ListItem>
+                        <asp:ListItem Value="Enhancement">Enhancement</asp:ListItem>
+                        <asp:ListItem Value="Replacement">Replacement</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
             </div>
 
             <div class="clearfix"></div>
 
-            <hr />
             <div class="form-group">
-                <div class="col-md-4">
-                    <label class="control-label">What is the nature of the request?</label>
-                    <p class="text-muted text-right">Enter a brief description of the requirements</p>
+                <div class="col-md-3">
+                    <label for="natureOfRequest" class="control-label">What is the nature of the request?</label>
                 </div>
 
-                <div class="col-md-8 col-sm">
-                    <textarea class="form-control" rows="4" id="txFive"
-                        placeholder="Enter a brief description of the requirements"></textarea>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="natureOfRequest" class="form-control" Rows="4"
+                        placeholder="Enter a brief description of the requirements" />
                     <p class="small text-muted">You have <span id="ctxFive"></span>letters left.</p>
                 </div>
             </div>
 
-            <hr />
             <div class="form-group">
-                <div class="col-md-4">
-                    <label class="control-label">What information do you require?</label>
-                    <p class="text-muted text-right">
-                        Please supply a mocked up version of the request and
-                            list the fields that you want displayed. Is there a current report
-                            you would like this based on?
-                    </p>
+                <div class="col-md-3">
+                    <label for="informationRequired" class="control-label">What information do you require?</label>
+
                 </div>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="4" id="txFour"
-                        placeholder="Is there a current report you'd like this based on?"></textarea>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="informationRequired" class="form-control" Rows="4"
+                        placeholder="Supply a mocked up version of the request and list the fields that you want displayed." />
                     <p class="small text-muted">You have <span id="ctxFour"></span>letters left.</p>
                 </div>
             </div>
@@ -99,155 +82,135 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <div class="col-md-4">
-                    <label class="control-label">What parameters are required?</label>
-                    <p class="text-muted text-right">e.g. Farm, date range etc.</p>
+                <div class="col-md-3">
+                    <label for="parametersRequired" class="control-label">What parameters are required?</label>
                 </div>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="4" id="txThree"
-                        placeholder="E.g. Farm, date range etc."></textarea>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="parametersRequired" class="form-control" Rows="3"
+                        placeholder="E.g. Farm, date range etc." />
                     <p class="small text-muted">You have <span id="ctxThree"></span>letters left.</p>
                 </div>
             </div>
-
-            <hr />
             <div class="form-group">
-                <div class="col-md-4">
-                    <label class="control-label">Please indicate any sorting/order/grouping requirements</label>
-                    <p class="text-muted text-right">e.g. sort alphabetically, group by department</p>
+                <div class="col-md-3">
+                    <label for="groupingRequirements" class="control-label">Please indicate any sorting/order/ grouping requirements</label>
                 </div>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="4" id="txTwo"
-                        placeholder="e.g. sort alphabetically, group by department"></textarea>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="groupingRequirements" class="form-control" Rows="3"
+                        placeholder="e.g. sort alphabetically, group by department" />
                     <p class="small text-muted">You have <span id="ctxTwo"></span>letters left.</p>
                 </div>
             </div>
 
-            <hr />
             <div class="form-group">
-                <div class="col-md-4">
-                    <label class="control-label">Who do you want to access the information?</label>
-                    <p class="text-muted text-right">List all people or groups of people we will have permissions to run the report</p>
+                <div class="col-md-3">
+                    <label for="peopleToShare" class="control-label">Who do you want to access the information?</label>
                 </div>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="4" id="txOne"
-                        placeholder="List all people or groups of people we will have permissions to run the report"></textarea>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="peopleToShare" class="form-control" Rows="4"
+                        placeholder="List all people or groups of people we will have permissions to run the report" />
                     <p class="small text-muted">You have <span id="ctxOne"></span>letters left.</p>
                 </div>
             </div>
 
-            <hr />
             <div class="form-group">
-                <label class="col-md-4 control-label">Additional Comments:</label>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="4" id="additionalComments"
-                        placeholder="Additional Comments:"></textarea>
+                <label for="additionalComments" class="col-md-3 control-label">Additional Comments:</label>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="additionalComments" class="form-control" Rows="4"
+                        placeholder="Additional Comments" />
                     <p class="small text-muted">You have <span id="counterAdditionalComments"></span>letters left.</p>
                 </div>
             </div>
         </div>
     </div>
-    <hr />
 
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-md-9">
             <h3>Business Intelligence Section: Internal use only</h3>
         </div>
     </div>
     <hr />
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="" class="col-sm-3 control-label">Date Reviewed</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control date" id="dateReviewed" placeholder="">
+                <label for="dateReviewed" class="col-md-3 control-label">Date Reviewed</label>
+                <div class="col-md-3">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="dateReviewed" class="form-control date" placeholder="Date Reviewed" />
                 </div>
 
-                <label for="" class="col-sm-3 control-label">Estimated Hours</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" id="" placeholder="Hours">
+                <label for="estimatedHours" class="col-md-3 control-label">Estimated Hours</label>
+                <div class="col-md-3">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="estimatedHours" class="form-control" placeholder="Estimated Hours" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="" class="col-sm-3 control-label">Business Case ID</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="" placeholder="Business Case ID">
+                <label for="businessCaseID" class="col-md-3 control-label">Business Case ID</label>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="businessCaseID" class="form-control" placeholder="Business Case ID" />
                 </div>
             </div>
-            <hr />
-
-            <table class="table">
-                <caption>Sign Off Process (Change Control)</caption>
-                <thead>
-                    <tr>
-                        <th>Approval</th>
-                        <th>Name</th>
-                        <th>Signature</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Executive Sponsor</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Development</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">User Acceptance Testing</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Release</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="form-group">
-                <label class="col-sm-4 control-label">Comments:</label>
-                <div class="col-sm-8">
-                    <textarea class="form-control" rows="4" id="txSix"
-                        placeholder="Additional Comments:"></textarea>
+                <label for="internalComments" class="col-md-3 control-label">Comments:</label>
+                <div class="col-md-9">
+                    <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="internalComments" class="form-control" Rows="3"
+                        placeholder="Comments" />
                     <p class="small text-muted">You have <span id="ctxSix"></span>letters left.</p>
                 </div>
             </div>
         </div>
     </div>
-    <hr />
 
     <div class="row">
-        <div class="col-lg-12">
-            <button type="button" class="btn btn-primary btn-lg">Submit Form</button>
-            <hr />
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        <label for="" class="col-md-3 control-label">Name of Requestor</label>
         <div class="col-md-9">
-            <asp:TextBox runat="server" ID="NameBox" class="form-control" ClientIDMode="Static" placeholder="Name of Requestor" />
+            <h3>Sign Off Process (Change Control)</h3>
         </div>
     </div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Approval</th>
+                <th>Name</th>
+                <th>Signature</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Executive Sponsor</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Development</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">User Acceptance Testing</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Release</th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <p>
-        <asp:Label runat="server" ID="TextBox1" />
-        <input type="submit" value="Submit" />
-    </p>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-lg">Submit Form</button>
+        </div>
+    </div>
 
     <script>
         $(".date").datepicker({

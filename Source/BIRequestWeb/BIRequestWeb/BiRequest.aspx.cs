@@ -13,7 +13,7 @@ namespace BiRequestWeb
         {
             if (IsPostBack)
             {
-                TextBox1.Text = NameBox.Text;
+                executiveSponsor.Text = nameOfRequestor.Text;
             }
         }
     }
