@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BiRequest.aspx.cs" Inherits="BiRequestWeb.BiRequest" %>
-
+<%-- ReSharper disable Html.IdNotResolved --%>
 <asp:Content ID="BiRequestForm" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-9">
@@ -45,10 +45,6 @@
                 <label for="requestType" class="col-md-3 control-label">Request Type</label>
                 <div class="col-md-9">
                     <asp:DropDownList runat="server" ClientIDMode="Static" ID="requestType" class="form-control">
-                        <asp:ListItem Selected="True" Value="New Request">New Request</asp:ListItem>
-                        <asp:ListItem Value="Modification">Modification</asp:ListItem>
-                        <asp:ListItem Value="Enhancement">Enhancement</asp:ListItem>
-                        <asp:ListItem Value="Replacement">Replacement</asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
@@ -63,7 +59,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="natureOfRequest" class="form-control" Rows="4"
                         placeholder="Enter a brief description of the requirements" />
-                    <p class="small text-muted">You have <span id="ctxFive"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="natureOfRequestCounter"></span>letters left.</p>
                 </div>
             </div>
 
@@ -75,7 +71,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="informationRequired" class="form-control" Rows="4"
                         placeholder="Supply a mocked up version of the request and list the fields that you want displayed." />
-                    <p class="small text-muted">You have <span id="ctxFour"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="informationRequiredCounter"></span>letters left.</p>
                 </div>
             </div>
         </div>
@@ -88,7 +84,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="parametersRequired" class="form-control" Rows="3"
                         placeholder="E.g. Farm, date range etc." />
-                    <p class="small text-muted">You have <span id="ctxThree"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="parametersRequiredCounter"></span>letters left.</p>
                 </div>
             </div>
             <div class="form-group">
@@ -98,7 +94,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="groupingRequirements" class="form-control" Rows="3"
                         placeholder="e.g. sort alphabetically, group by department" />
-                    <p class="small text-muted">You have <span id="ctxTwo"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="groupingRequirementsCounter"></span>letters left.</p>
                 </div>
             </div>
 
@@ -109,7 +105,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="peopleToShare" class="form-control" Rows="4"
                         placeholder="List all people or groups of people we will have permissions to run the report" />
-                    <p class="small text-muted">You have <span id="ctxOne"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="peopleToShareCounter"></span>letters left.</p>
                 </div>
             </div>
 
@@ -118,7 +114,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="additionalComments" class="form-control" Rows="4"
                         placeholder="Additional Comments" />
-                    <p class="small text-muted">You have <span id="counterAdditionalComments"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>letters left.</p>
                 </div>
             </div>
         </div>
@@ -157,7 +153,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="internalComments" class="form-control" Rows="3"
                         placeholder="Comments" />
-                    <p class="small text-muted">You have <span id="ctxSix"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="internalCommentsCounter"></span>letters left.</p>
                 </div>
             </div>
         </div>
