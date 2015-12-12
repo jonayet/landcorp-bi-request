@@ -36,6 +36,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
                 <asp:ScriptReference Name="bootstrap-datepicker" />
+                <asp:ScriptReference Name="bootstrap-typeahead" />
             </Scripts>
         </asp:ScriptManager>
 

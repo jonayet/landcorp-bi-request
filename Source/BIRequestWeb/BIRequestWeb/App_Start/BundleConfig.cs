@@ -47,6 +47,13 @@ namespace BiRequestWeb
                     Path = "~/Scripts/bootstrap-datepicker.min.js",
                     DebugPath = "~/Scripts/bootstrap-datepicker.js",
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("bootstrap-typeahead",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/typeahead.jquery.min.js",
+                    DebugPath = "~/Scripts/typeahead.jquery.js"
+                });
         }
     }
 }
