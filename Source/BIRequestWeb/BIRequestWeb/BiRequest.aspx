@@ -210,35 +210,38 @@
     </div>
 
     <script>
-        $(".date").datepicker({
-            autoclose: true
-        });
+        $(function() {
+            $(".date").datepicker({
+                autoclose: true
+            });
 
-        function typeaheadSource(query, syncResults, asyncResults) {
-            $.ajax({
-                type: "POST",
-                url: "/BirequestWebService.asmx/SearchUser",
-                data: JSON.stringify({ query: query }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    debugger;
-                    syncResults();
-                    asyncResults(data.d);
+            var users = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                //identify: function(datum) {
+                //    return Date.now();
+                //},
+                prefetch: {
+                    url: '/BirequestWebService.asmx/SearchUser?query=',
+                    cache: false
                 },
-                failure: function (errMsg) {
+                remote: {
+                    url: '/BirequestWebService.asmx/SearchUser?query=%QUERY',
+                    wildcard: '%QUERY'
                 }
             });
-        }
+            users.initialize();
 
-        $('#executiveSponsor').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        },
-        {
-            name: 'states',
-            source: typeaheadSource
+            $('#executiveSponsor').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'users',
+                source: users,
+                limit: 10
+            });
         });
     </script>
 </asp:Content>

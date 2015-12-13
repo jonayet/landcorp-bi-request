@@ -51,8 +51,8 @@ namespace BiRequestWeb
             ScriptManager.ScriptResourceMapping.AddDefinition("bootstrap-typeahead",
                 new ScriptResourceDefinition
                 {
-                    Path = "~/Scripts/typeahead.jquery.min.js",
-                    DebugPath = "~/Scripts/typeahead.jquery.js"
+                    Path = "~/Scripts/typeahead.bundle.min.js",
+                    DebugPath = "~/Scripts/typeahead.bundle.js"
                 });
         }
     }
