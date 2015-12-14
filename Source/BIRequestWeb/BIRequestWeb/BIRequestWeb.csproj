@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="BiRequestView.aspx" />
     <Content Include="BiRequest.aspx" />
     <Content Include="BirequestWebService.asmx" />
     <Content Include="Contact.aspx" />
@@ -209,6 +210,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BiRequestView.aspx.cs">
+      <DependentUpon>BiRequestView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BiRequestView.aspx.designer.cs">
+      <DependentUpon>BiRequestView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BiRequest.aspx.cs">
       <DependentUpon>BiRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
