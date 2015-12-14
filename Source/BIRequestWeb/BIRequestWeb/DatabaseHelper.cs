@@ -7,5 +7,6 @@ namespace BiRequestWeb
         public static string ConnectionString = ConfigurationManager.ConnectionStrings["Admin"].ConnectionString;
         public static string BiRequestTable = "dbo.AppBiRequest";
         public static string BiRequestTypeTable = "dbo.BiRequestType";
+        public static string UserTable = "dbo.ActiveDirectoryUsers";
     }
 }

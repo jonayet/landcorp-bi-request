@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="nameOfRequestor" class="col-md-3 control-label">Name of Requestor</label>
                 <div class="col-md-9">
-                    <asp:TextBox runat="server" ClientIDMode="Static" ID="nameOfRequestor" class="form-control" placeholder="Name of Requestor" />
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="nameOfRequestor" class="form-control twitter-typeahead" placeholder="Name of Requestor" />
                 </div>
             </div>
             <div class="form-group">
@@ -215,33 +215,26 @@
                 autoclose: true
             });
 
-            var users = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                //identify: function(datum) {
-                //    return Date.now();
-                //},
-                prefetch: {
-                    url: '/BirequestWebService.asmx/SearchUser?query=',
-                    cache: false
-                },
-                remote: {
-                    url: '/BirequestWebService.asmx/SearchUser?query=%QUERY',
-                    wildcard: '%QUERY'
-                }
-            });
-            users.initialize();
+            function typeaheadData(query, sync, async) {
+                $.ajax({
+                    url: '/BirequestWebService.asmx/SearchUser',
+                    type: 'POST',
+                    data: { query: query },
+                    success: function (data) {
+                        async(data);
+                    }
+                });
+            }
 
-            $('#executiveSponsor').typeahead({
-                hint: true,
-                highlight: true,
-                minLength: 1
+            $('.twitter-typeahead').typeahead({
+                highlight: true
             },
             {
                 name: 'users',
-                source: users,
-                limit: 10
-            });
+                display: 'FullName',
+                source: typeaheadData,
+                limit: 6
+        });
         });
     </script>
 </asp:Content>
