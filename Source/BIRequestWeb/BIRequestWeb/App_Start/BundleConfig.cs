@@ -54,6 +54,13 @@ namespace BiRequestWeb
                     Path = "~/Scripts/typeahead.jquery.min.js",
                     DebugPath = "~/Scripts/typeahead.jquery.js"
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery-simplyCountable",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/jquery.simplyCountable.min.js",
+                    DebugPath = "~/Scripts/jquery.simplyCountable.js"
+                });
         }
     }
 }

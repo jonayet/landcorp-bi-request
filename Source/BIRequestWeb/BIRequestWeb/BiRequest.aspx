@@ -60,7 +60,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="natureOfRequest" class="form-control" Rows="4"
                         placeholder="Enter a brief description of the requirements" />
-                    <p class="small text-muted">You have <span id="natureOfRequestCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="natureOfRequestCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="informationRequired" class="form-control" Rows="4"
                         placeholder="Supply a mocked up version of the request and list the fields that you want displayed." />
-                    <p class="small text-muted">You have <span id="informationRequiredCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="informationRequiredCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="parametersRequired" class="form-control" Rows="3"
                         placeholder="E.g. Farm, date range etc." />
-                    <p class="small text-muted">You have <span id="parametersRequiredCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="parametersRequiredCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
             <div class="form-group">
@@ -95,7 +95,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="groupingRequirements" class="form-control" Rows="3"
                         placeholder="e.g. sort alphabetically, group by department" />
-                    <p class="small text-muted">You have <span id="groupingRequirementsCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="groupingRequirementsCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="peopleToShare" class="form-control" Rows="4"
                         placeholder="List all people or groups of people we will have permissions to run the report" />
-                    <p class="small text-muted">You have <span id="peopleToShareCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="peopleToShareCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="additionalComments" class="form-control" Rows="4"
                         placeholder="Additional Comments" />
-                    <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@
                 <div class="col-md-9">
                     <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="internalComments" class="form-control" Rows="3"
                         placeholder="Comments" />
-                    <p class="small text-muted">You have <span id="internalCommentsCounter"></span>letters left.</p>
+                    <p class="small text-muted">You have <span id="internalCommentsCounter"></span>&nbsp;letters left.</p>
                 </div>
             </div>
         </div>
@@ -210,10 +210,18 @@
     </div>
 
     <script>
-        $(function() {
+        $(function () {
             $(".date").datepicker({
                 autoclose: true
             });
+
+            $("#natureOfRequest").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#natureOfRequestCounter' });
+            $("#informationRequired").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#informationRequiredCounter' });
+            $("#parametersRequired").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#parametersRequiredCounter' });
+            $("#groupingRequirements").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#groupingRequirementsCounter' });
+            $("#peopleToShare").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#peopleToShareCounter' });
+            $("#additionalComments").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#additionalCommentsCounter' });
+            $("#internalComments").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#internalCommentsCounter' });
 
             function typeaheadData(query, sync, async) {
                 $.ajax({
@@ -234,7 +242,7 @@
                 display: 'FullName',
                 source: typeaheadData,
                 limit: 6
-        });
+            });
         });
     </script>
 </asp:Content>
