@@ -23,9 +23,9 @@ namespace BiRequestWeb
         public IEnumerable<User> Get(string query, int limit = 10)
         {
             var result = new List<User>();
-            var sqlQuery = string.Format("SELECT TOP {0} [UserId],[FullName] FROM {1} WHERE FullName LIKE @Query;", limit, DatabaseHelper.UserTable);
+            var sqlQuery = string.Format("SELECT TOP {0} [UserId],[FullName] FROM {1} WHERE FullName LIKE @Query;", limit, DatabaseHelper.AdminUserTable);
 
-            using (var sqlConnection = new SqlConnection(DatabaseHelper.ConnectionString))
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.AdminConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
             {
                 sqlCommand.Parameters.AddWithValue("@Query", "%" + query + "%");

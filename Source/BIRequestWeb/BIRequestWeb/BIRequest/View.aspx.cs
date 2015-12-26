@@ -48,9 +48,9 @@ namespace BiRequestWeb.BIRequest
 
         protected void GetById(int id)
         {
-            string sqlQuery = string.Format("SELECT * FROM {0} INNER JOIN {1} ON {0}.RequestType = {1}.RequestTypeId WHERE {0}.Id=@Id;", DatabaseHelper.BiRequestTable, DatabaseHelper.BiRequestTypeTable);
+            string sqlQuery = string.Format("SELECT * FROM {0} INNER JOIN {1} ON {0}.RequestType = {1}.RequestTypeId WHERE {0}.RequestId=@Id;", DatabaseHelper.BiRequestTable, DatabaseHelper.BiRequestTypeTable);
 
-            using (var sqlConnection = new SqlConnection(DatabaseHelper.ConnectionString))
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
             {
                 sqlCommand.Parameters.AddWithValue("@Id", id);

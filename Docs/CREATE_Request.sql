@@ -1,15 +1,15 @@
-USE [Admin]
+USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[AppBiRequest]    Script Date: 12/12/2015 2:21:20 PM ******/
+/****** Object:  Table [dbo].[Request]    Script Date: 12/27/2015 1:05:50 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[AppBiRequest](
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Request](
+	[RequestId] [bigint] IDENTITY(1,1) NOT NULL,
 	[RequestorName] [nvarchar](50) NULL,
 	[DateRequested] [date] NULL,
 	[DateRequired] [date] NULL,
@@ -27,18 +27,17 @@ CREATE TABLE [dbo].[AppBiRequest](
 	[BusinessCaseId] [int] NULL,
 	[Comments] [nvarchar](500) NULL,
 	[ApprovalStatus] [int] NULL,
- CONSTRAINT [PK_AppBiRequest] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Request] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[RequestId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
-ALTER TABLE [dbo].[AppBiRequest]  WITH CHECK ADD  CONSTRAINT [FK_AppBiRequest_BiRequestType] FOREIGN KEY([RequestType])
-REFERENCES [dbo].[BiRequestType] ([Id])
+ALTER TABLE [dbo].[Request]  WITH CHECK ADD  CONSTRAINT [FK_Request_RequestType] FOREIGN KEY([RequestType])
+REFERENCES [dbo].[RequestType] ([RequestTypeId])
 GO
 
-ALTER TABLE [dbo].[AppBiRequest] CHECK CONSTRAINT [FK_AppBiRequest_BiRequestType]
+ALTER TABLE [dbo].[Request] CHECK CONSTRAINT [FK_Request_RequestType]
 GO
-

@@ -44,7 +44,7 @@ namespace BiRequestWeb.BIRequest
             var result = new List<ListItem>();
             string sqlQuery = string.Format("SELECT * FROM {0};", DatabaseHelper.BiRequestTypeTable);
 
-            using (var sqlConnection = new SqlConnection(DatabaseHelper.ConnectionString))
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
             {
                 sqlConnection.Open();
@@ -70,7 +70,7 @@ namespace BiRequestWeb.BIRequest
             var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, DateRequested, DateRequired, ExecutiveSponsor, RequestName, RequestType, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, ApprovalStatus) " +
                                        "VALUES (@RequestorName, @DateRequested, @DateRequired, @ExecutiveSponsor, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus);", DatabaseHelper.BiRequestTable);
 
-            using (var sqlConnection = new SqlConnection(DatabaseHelper.ConnectionString))
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
             {
                 sqlCommand.Parameters.AddWithValue("@RequestorName", ParseText(nameOfRequestor.Text));

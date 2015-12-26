@@ -4,9 +4,10 @@ namespace BiRequestWeb
 {
     public class DatabaseHelper
     {
-        public static string ConnectionString = ConfigurationManager.ConnectionStrings["Admin"].ConnectionString;
-        public static string BiRequestTable = "dbo.AppBIRequest";
-        public static string BiRequestTypeTable = "dbo.BIRequestType";
-        public static string UserTable = "dbo.ActiveDirectoryUsers";
+        public static string BIRequestConnectionString = ConfigurationManager.ConnectionStrings["BIRequest"].ConnectionString;
+        public static string AdminConnectionString = ConfigurationManager.ConnectionStrings["Admin"].ConnectionString;
+        public static string BiRequestTable = "dbo.Request";
+        public static string BiRequestTypeTable = "dbo.RequestType";
+        public static string AdminUserTable = "dbo.ActiveDirectoryUsers";
     }
 }
