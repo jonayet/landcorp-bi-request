@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BiRequestWeb {
+namespace BiRequestWeb.BIRequest {
     
     
-    public partial class BiRequestView {
+    public partial class BiRequest {
         
         /// <summary>
         /// nameOfRequestor control.

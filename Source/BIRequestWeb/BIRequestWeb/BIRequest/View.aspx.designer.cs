@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BiRequestWeb {
+namespace BiRequestWeb.BIRequest {
     
     
-    public partial class BiRequest {
+    public partial class BiRequestView {
         
         /// <summary>
         /// nameOfRequestor control.
@@ -64,7 +64,7 @@ namespace BiRequestWeb {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList requestType;
+        protected global::System.Web.UI.WebControls.TextBox requestType;
         
         /// <summary>
         /// natureOfRequest control.
@@ -119,41 +119,5 @@ namespace BiRequestWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox additionalComments;
-        
-        /// <summary>
-        /// dateReviewed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateReviewed;
-        
-        /// <summary>
-        /// estimatedHours control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox estimatedHours;
-        
-        /// <summary>
-        /// businessCaseID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox businessCaseID;
-        
-        /// <summary>
-        /// internalComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox internalComments;
     }
 }

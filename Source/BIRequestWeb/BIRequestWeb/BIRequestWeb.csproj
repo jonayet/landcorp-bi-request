@@ -111,8 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="BiRequestView.aspx" />
-    <Content Include="BiRequest.aspx" />
+    <Content Include="BIRequest\View.aspx" />
+    <Content Include="BIRequest\Create.aspx" />
     <Content Include="BirequestWebService.asmx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -210,19 +210,19 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BiRequestView.aspx.cs">
-      <DependentUpon>BiRequestView.aspx</DependentUpon>
+    <Compile Include="BIRequest\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BiRequestView.aspx.designer.cs">
-      <DependentUpon>BiRequestView.aspx</DependentUpon>
+    <Compile Include="BIRequest\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BiRequest.aspx.cs">
-      <DependentUpon>BiRequest.aspx</DependentUpon>
+    <Compile Include="BIRequest\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BiRequest.aspx.designer.cs">
-      <DependentUpon>BiRequest.aspx</DependentUpon>
+    <Compile Include="BIRequest\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="BirequestWebService.asmx.cs">
       <DependentUpon>BirequestWebService.asmx</DependentUpon>

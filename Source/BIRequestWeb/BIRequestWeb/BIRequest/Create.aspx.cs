@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BiRequestWeb
+namespace BiRequestWeb.BIRequest
 {
     public partial class BiRequest : System.Web.UI.Page
     {
@@ -57,8 +54,8 @@ namespace BiRequestWeb
                 {
                     var biRequest = new ListItem
                     {
-                        Value = Convert.ToInt32(dataReader["Id"]).ToString(),
-                        Text = dataReader["Name"] as string
+                        Value = Convert.ToInt32(dataReader["RequestTypeId"]).ToString(),
+                        Text = dataReader["RequestTypeTitle"] as string
                     };
                     result.Add(biRequest);
                 }

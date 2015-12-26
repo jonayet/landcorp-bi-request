@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Routing;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,6 +20,11 @@ namespace BiRequestWeb
         {
             SetSessionVariables();
             CheckPageAuthorisation();
+
+            //if (!HttpContext.Current.Request.Url.AbsolutePath.Contains("/bireq/"))
+            //{
+            //    Response.RedirectPermanent("bireq/requestor");
+            //}
         }
 
         protected void SetSessionVariables()
