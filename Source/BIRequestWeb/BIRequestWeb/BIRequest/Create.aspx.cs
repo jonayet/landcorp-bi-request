@@ -67,15 +67,17 @@ namespace BiRequestWeb.BIRequest
         private int Insert()
         {
             int createdItemId;
-            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, DateRequested, DateRequired, ExecutiveSponsor, RequestName, RequestType, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, ApprovalStatus) " +
-                                       "VALUES (@RequestorName, @DateRequested, @DateRequired, @ExecutiveSponsor, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus);", DatabaseHelper.BiRequestTable);
+            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestType, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, ApprovalStatus) " +
+                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus);", DatabaseHelper.BiRequestTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
             {
-                sqlCommand.Parameters.AddWithValue("@RequestorName", ParseText(nameOfRequestor.Text));
+                sqlCommand.Parameters.AddWithValue("@RequestorId", ParseText(requestorId.Value));
+                sqlCommand.Parameters.AddWithValue("@RequestorName", ParseText(requestor.Text));
                 sqlCommand.Parameters.AddWithValue("@DateRequested", ParseDate(dateRequested.Text));
                 sqlCommand.Parameters.AddWithValue("@DateRequired", ParseDate(dateRequired.Text));
+                sqlCommand.Parameters.AddWithValue("@ExecutiveSponsorId", ParseText(executiveSponsorId.Value));
                 sqlCommand.Parameters.AddWithValue("@ExecutiveSponsor", ParseText(executiveSponsor.Text));
                 sqlCommand.Parameters.AddWithValue("@RequestName", ParseText(requestName.Text));
                 sqlCommand.Parameters.AddWithValue("@RequestType", ParseInteger(requestType.SelectedValue));

@@ -110,11 +110,9 @@
     <Folder Include="Scripts\locales\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="BIRequest\View.aspx" />
     <Content Include="BIRequest\Create.aspx" />
     <Content Include="BirequestWebService.asmx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -182,7 +180,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
@@ -190,7 +187,6 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
@@ -202,13 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BIRequest\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
@@ -228,21 +217,7 @@
       <DependentUpon>BirequestWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ErrorPages\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

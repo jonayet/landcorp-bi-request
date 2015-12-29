@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.DynamicData;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
@@ -14,10 +10,10 @@ namespace BiRequestWeb
             var settings = new FriendlyUrlSettings {AutoRedirectMode = RedirectMode.Permanent};
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("request-new", "new-request", "~/BIRequest/Create.aspx", true);
-            routes.MapPageRoute("request-empty", "request", "~/BIRequest/View.aspx", true);
-            routes.MapPageRoute("request-id", "request/{id}", "~/BIRequest/View.aspx", true);
-            routes.MapPageRoute("request-role", "request/{id}/{role}", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("new", "new", "~/BIRequest/Create.aspx", true);
+            routes.MapPageRoute("", "", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("id", "{id}", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("id-role", "{id}/{role}", "~/BIRequest/View.aspx", true);
         }
     }
 }

@@ -9,8 +9,9 @@
                 <div class="form-group">
                     <label for="nameOfRequestor" class="col-md-3 control-label">Name of Requestor</label>
                     <div class="col-md-9">
-                        <asp:TextBox runat="server" ClientIDMode="Static" ID="nameOfRequestor" class="form-control twitter-typeahead" placeholder="Name of Requestor" />
+                        <asp:TextBox runat="server" ClientIDMode="Static" ID="requestor" class="form-control twitter-typeahead" placeholder="Name of Requestor" />
                     </div>
+                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="requestorId"/>
                 </div>
                 <div class="form-group">
                     <label for="dateRequested" class="col-md-3 control-label">Date Requested</label>
@@ -28,6 +29,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" ClientIDMode="Static" ID="executiveSponsor" class="form-control twitter-typeahead" placeholder="Executive Sponsor" />
                     </div>
+                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="executiveSponsorId"/>
                 </div>
 
                 <div class="form-group">
@@ -40,8 +42,7 @@
                 <div class="form-group">
                     <label for="requestType" class="col-md-3 control-label">Request Type</label>
                     <div class="col-md-9">
-                        <asp:DropDownList runat="server" ClientIDMode="Static" ID="requestType" class="form-control">
-                        </asp:DropDownList>
+                        <asp:DropDownList runat="server" ClientIDMode="Static" ID="requestType" class="form-control" />
                     </div>
                 </div>
 
@@ -55,19 +56,18 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="natureOfRequest" class="form-control" Rows="4"
                             placeholder="Enter a brief description of the requirements" />
-                        <p class="small text-muted">You have <span id="natureOfRequestCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="natureOfRequestCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-3">
                         <label for="informationRequired" class="control-label">What information do you require?</label>
-
                     </div>
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="informationRequired" class="form-control" Rows="4"
                             placeholder="Supply a mocked up version of the request and list the fields that you want displayed." />
-                        <p class="small text-muted">You have <span id="informationRequiredCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="informationRequiredCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="parametersRequired" class="form-control" Rows="3"
                             placeholder="E.g. Farm, date range etc." />
-                        <p class="small text-muted">You have <span id="parametersRequiredCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="parametersRequiredCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -90,7 +90,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="groupingRequirements" class="form-control" Rows="3"
                             placeholder="e.g. sort alphabetically, group by department" />
-                        <p class="small text-muted">You have <span id="groupingRequirementsCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="groupingRequirementsCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="peopleToShare" class="form-control" Rows="4"
                             placeholder="List all people or groups of people we will have permissions to run the report" />
-                        <p class="small text-muted">You have <span id="peopleToShareCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="peopleToShareCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="additionalComments" class="form-control" Rows="4"
                             placeholder="Additional Comments" />
-                        <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="internalComments" class="form-control" Rows="3"
                             placeholder="Comments" />
-                        <p class="small text-muted">You have <span id="internalCommentsCounter"></span>&nbsp;letters left.</p>
+                        <p class="small text-muted">You have <span id="internalCommentsCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
             </div>
@@ -223,15 +223,22 @@
                 });
             }
 
-            $('.twitter-typeahead').typeahead({
-                highlight: true
-            },
-            {
-                name: 'users',
-                display: 'FullName',
-                source: typeaheadData,
-                limit: 6
-            });
+            function bindTypeahead(id) {
+                $(id).typeahead({
+                    highlight: true
+                },
+                {
+                    name: 'users',
+                    display: 'FullName',
+                    source: typeaheadData,
+                    limit: 6
+                }).on('typeahead:select', function(ev, suggestion) {
+                    $(id + 'Id').val(suggestion.Id);
+                });
+            }
+
+            bindTypeahead("#requestor");
+            bindTypeahead("#executiveSponsor");
         });
     </script>
 </asp:Content>

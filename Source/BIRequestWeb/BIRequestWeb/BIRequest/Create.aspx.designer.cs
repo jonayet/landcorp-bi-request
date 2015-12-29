@@ -13,13 +13,22 @@ namespace BiRequestWeb.BIRequest {
     public partial class BiRequest {
         
         /// <summary>
-        /// nameOfRequestor control.
+        /// requestor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nameOfRequestor;
+        protected global::System.Web.UI.WebControls.TextBox requestor;
+        
+        /// <summary>
+        /// requestorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField requestorId;
         
         /// <summary>
         /// dateRequested control.
@@ -47,6 +56,15 @@ namespace BiRequestWeb.BIRequest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox executiveSponsor;
+        
+        /// <summary>
+        /// executiveSponsorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField executiveSponsorId;
         
         /// <summary>
         /// requestName control.

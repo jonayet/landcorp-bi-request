@@ -13,7 +13,6 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server" class="form-horizontal">
@@ -59,11 +58,6 @@
                     <a class="navbar-brand" runat="server" href="~/"><asp:Label ID="lbl_Title" runat="server"></asp:Label></a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
                     <p class="nav navbar-text navbar-right"><asp:Label ID="lbl_UserName" runat="server" OnLoad="lbl_UserName_Load"></asp:Label></p>
                 </div>
             </div>

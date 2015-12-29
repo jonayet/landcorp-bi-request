@@ -319,7 +319,7 @@ namespace BiRequestWeb
 
         protected void lbl_UserName_Load(object sender, EventArgs e)
         {
-            lbl_UserName.Text = "<b>" + Session["FullName"] + "</b><br />" + Session["UserType"];
+            lbl_UserName.Text = "<b>" + Session["FullName"] + "</b>,&nbsp;" + Session["UserType"];
         }
     }
 }
