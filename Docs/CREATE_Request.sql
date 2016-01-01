@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[Request]    Script Date: 12/30/2015 12:35:04 AM ******/
+/****** Object:  Table [dbo].[Request]    Script Date: 1/1/2016 10:57:34 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -37,16 +37,10 @@ CREATE TABLE [dbo].[Request](
 
 GO
 
-ALTER TABLE [dbo].[Request]  WITH CHECK ADD  CONSTRAINT [FK_Request_Request] FOREIGN KEY([RequestId])
-REFERENCES [dbo].[Request] ([RequestId])
-GO
-
-ALTER TABLE [dbo].[Request] CHECK CONSTRAINT [FK_Request_Request]
-GO
-
 ALTER TABLE [dbo].[Request]  WITH CHECK ADD  CONSTRAINT [FK_Request_RequestType] FOREIGN KEY([RequestType])
 REFERENCES [dbo].[RequestType] ([RequestTypeId])
 GO
 
 ALTER TABLE [dbo].[Request] CHECK CONSTRAINT [FK_Request_RequestType]
 GO
+

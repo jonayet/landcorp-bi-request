@@ -17,27 +17,21 @@ namespace BiRequestWeb.BIRequest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                Insert();
-            }
+            if (!IsPostBack) return;
+            var requestId = InsertRequest();
+            SaveAttachments(requestId);
         }
 
-        private void SaveUploadedFiles()
+        private void SaveAttachments(int requestId)
         {
-            // check if file has been selected
-            HttpFileCollection files = Request.Files;
-            for (int i = 0; i < files.Count; i++)
+            var files = Request.Files;
+            for (var i = 0; i < files.Count; i++)
             {
-                HttpPostedFile file = files[i];
-                if (file.ContentLength > 0)
-                {
-                    string path = Server.MapPath("~/Uploads/");
-                    string fileName = Path.GetFileName(file.FileName);
-
-                    // now save the file to the disk
-                    file.SaveAs(path + fileName);
-                }
+                var file = files[i];
+                if (file.ContentLength <= 0) continue;
+                var fileContent = new byte[file.ContentLength];
+                file.InputStream.Read(fileContent, 0, file.ContentLength);
+                InsertAttachment(requestId, file.FileName, file.ContentType, file.ContentLength, fileContent);
             }
         }
 
@@ -62,7 +56,7 @@ namespace BiRequestWeb.BIRequest
         public ListItem[] GetBiRequestTypes()
         {
             var result = new List<ListItem>();
-            string sqlQuery = string.Format("SELECT * FROM {0};", DatabaseHelper.BiRequestTypeTable);
+            var sqlQuery = string.Format("SELECT * FROM {0};", DatabaseHelper.BiRequestTypeTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -84,11 +78,11 @@ namespace BiRequestWeb.BIRequest
             return result.ToArray();
         }
 
-        private int Insert()
+        private int InsertRequest()
         {
             int createdItemId;
             var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestType, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, ApprovalStatus) " +
-                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus);", DatabaseHelper.BiRequestTable);
+                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus); SELECT SCOPE_IDENTITY();", DatabaseHelper.BiRequestTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -113,6 +107,27 @@ namespace BiRequestWeb.BIRequest
                 sqlCommand.Parameters.AddWithValue("@Comments", ParseText(internalComments.Text));
                 sqlCommand.Parameters.AddWithValue("@ApprovalStatus", DBNull.Value);
 
+                sqlConnection.Open();
+                createdItemId = Convert.ToInt32(sqlCommand.ExecuteScalar());
+                sqlConnection.Close();
+            }
+            return createdItemId;
+        }
+
+        private int InsertAttachment(int requestId, string fileName, string contentType, long contentLength, byte[] fileContent)
+        {
+            int createdItemId;
+            var sqlQuery = string.Format("INSERT INTO {0} (RequestId, FileName, ContentType, ContentLength, FileContent) " +
+                                       "VALUES (@RequestId, @FileName, @ContentType, @ContentLength, @FileContent); SELECT SCOPE_IDENTITY();", DatabaseHelper.AttachmentTable);
+
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
+            using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+            {
+                sqlCommand.Parameters.AddWithValue("@RequestId", requestId);
+                sqlCommand.Parameters.AddWithValue("@FileName", fileName);
+                sqlCommand.Parameters.AddWithValue("@ContentType", contentType);
+                sqlCommand.Parameters.AddWithValue("@ContentLength", contentLength);
+                sqlCommand.Parameters.AddWithValue("@FileContent", fileContent);
                 sqlConnection.Open();
                 createdItemId = Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();

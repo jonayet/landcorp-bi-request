@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[RequestType]    Script Date: 12/27/2015 1:02:30 AM ******/
+/****** Object:  Table [dbo].[RequestType]    Script Date: 1/1/2016 10:57:49 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -18,3 +18,4 @@ CREATE TABLE [dbo].[RequestType](
 ) ON [PRIMARY]
 
 GO
+
