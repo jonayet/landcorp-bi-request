@@ -82,14 +82,14 @@ namespace BiRequestWeb.DAL
                 if (dataReader.Read())
                 {
                     requestForm.Id = DataTransformer.ParseNullableLong(dataReader["Id"] as long?);
-                    requestForm.RequestorId = DataTransformer.ParseNullableInt(dataReader["RequestorId"] as int?);
+                    requestForm.RequestorId = dataReader["RequestorId"] as int?;
                     requestForm.RequestorName = dataReader["RequestorName"] as string;
-                    requestForm.DateRequested = DataTransformer.ParseNullableDate(dataReader["DateRequested"] as DateTime?);
-                    requestForm.DateRequired = DataTransformer.ParseNullableDate(dataReader["DateRequired"] as DateTime?);
-                    requestForm.ExecutiveSponsorId = DataTransformer.ParseNullableInt(dataReader["ExecutiveSponsorId"] as int?);
+                    requestForm.DateRequested = dataReader["DateRequested"] as DateTime?;
+                    requestForm.DateRequired = dataReader["DateRequired"] as DateTime?;
+                    requestForm.ExecutiveSponsorId = dataReader["ExecutiveSponsorId"] as int?;
                     requestForm.ExecutiveSponsor = dataReader["ExecutiveSponsor"] as string;
                     requestForm.RequestName = dataReader["RequestName"] as string;
-                    requestForm.RequestTypeId = DataTransformer.ParseNullableInt(dataReader["RequestTypeId"] as int?);
+                    requestForm.RequestTypeId = dataReader["RequestTypeId"] as int?;
                     requestForm.RequestTypeLabel = dataReader["RequestTypeLabel"] as string;
                     requestForm.RequestNature = dataReader["RequestNature"] as string;
                     requestForm.InformationRequired = dataReader["InformationRequired"] as string;
@@ -97,8 +97,8 @@ namespace BiRequestWeb.DAL
                     requestForm.GroupingRequirements = dataReader["GroupingRequirements"] as string;
                     requestForm.PeopleToShare = dataReader["PeopleToShare"] as string;
                     requestForm.Comments = dataReader["Comments"] as string;
-                    requestForm.DateReviewed = DataTransformer.ParseNullableDate(dataReader["DateReviewed"] as DateTime?);
-                    requestForm.EstimatedHours = DataTransformer.ParseNullableInt(dataReader["EstimatedHours"] as int?);
+                    requestForm.DateReviewed = dataReader["DateReviewed"] as DateTime?;
+                    requestForm.EstimatedHours = dataReader["EstimatedHours"] as int?;
                     requestForm.BusinessCaseId = dataReader["BusinessCaseId"] as string;
                     requestForm.ApprovalComments = dataReader["ApprovalComments"] as string;
                 }

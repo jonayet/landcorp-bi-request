@@ -7,11 +7,6 @@ namespace BiRequestWeb.DAL
 {
     public static class DataTransformer
     {
-        public static DateTime ParseNullableDate(DateTime? dateTime)
-        {
-            return dateTime ?? default(DateTime);
-        }
-
         public static DateTime? ParseDateString(string dateTime)
         {
             if (string.IsNullOrWhiteSpace(dateTime)) return null;
@@ -25,11 +20,6 @@ namespace BiRequestWeb.DAL
             return dateTime?.ToString("d");
         }
 
-        public static int ParseNullableInt(int? integer)
-        {
-            return integer ?? default(int);
-        }
-
         public static int? ParseIntString(string intString)
         {
             int i;
@@ -37,26 +27,9 @@ namespace BiRequestWeb.DAL
             return null;
         }
 
-        public static string ConvertIntToString(int? integer)
-        {
-            return integer?.ToString();
-        }
-
         public static long ParseNullableLong(long? bigInteger)
         {
             return bigInteger ?? default(long);
-        }
-
-        public static long? ParseLongString(string longString)
-        {
-            long i;
-            if (long.TryParse(longString, out i)) return i;
-            return null;
-        }
-
-        public static string ConvertLongToString(long? bigInteger)
-        {
-            return bigInteger?.ToString();
         }
 
         public static string ParseText(string text)
