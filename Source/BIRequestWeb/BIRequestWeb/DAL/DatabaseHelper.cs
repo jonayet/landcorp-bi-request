@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace BiRequestWeb
+namespace BiRequestWeb.DAL
 {
     public class DatabaseHelper
     {

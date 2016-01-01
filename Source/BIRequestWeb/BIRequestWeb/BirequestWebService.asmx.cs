@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Script.Services;
 using System.Web.Services;
+using BiRequestWeb.DAL;
 using Newtonsoft.Json;
 
 namespace BiRequestWeb

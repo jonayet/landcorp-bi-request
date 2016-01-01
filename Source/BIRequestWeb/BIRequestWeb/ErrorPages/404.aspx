@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="_404" StylesheetTheme="Theme"
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="BiRequestWeb.ErrorPages._404" StylesheetTheme="Theme"
     Title="Eaten!" CodeBehind="404.aspx.cs" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
