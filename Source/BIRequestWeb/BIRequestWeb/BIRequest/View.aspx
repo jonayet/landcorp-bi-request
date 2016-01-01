@@ -102,6 +102,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label for="informationRequired" class="control-label">Attachments</label>
+                    </div>
+                    <div class="col-md-9">
+                        <asp:Table runat="server" ClientIDMode="Static" ID="tblAttachments" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </fieldset>
 
     <fieldset disabled>

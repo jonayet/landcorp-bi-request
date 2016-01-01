@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace BiRequestWeb.BIRequest
 {
-    public partial class BiRequestView : System.Web.UI.Page
+    public partial class BiRequestView : Page
     {
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -17,11 +18,19 @@ namespace BiRequestWeb.BIRequest
         {
             if(IsPostBack) return;
 
-            int id;
-            if (int.TryParse(Page.RouteData.Values["id"] as string, out id))
-                GetById(id);
+            int requestId;
+            if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
 
-            natureOfRequest.Text = Page.RouteData.Values.ContainsKey("role") ? Page.RouteData.Values["role"] as string : "";
+            GetById(requestId);
+            tblAttachments.CssClass = "table table-condensed";
+            var x = GetAttachments(requestId);
+            foreach (var attachment in GetAttachments(requestId))
+            {
+                var row = new TableRow();
+                var cell = new TableCell {Text = attachment.FileName};
+                row.Cells.Add(cell);
+                tblAttachments.Rows.Add(row);
+            }
         }
 
         static IEnumerable<Control> FindControls(Control c, Func<Control, bool> predicate)
@@ -41,14 +50,14 @@ namespace BiRequestWeb.BIRequest
             return dateTime?.ToShortDateString() ?? string.Empty;
         }
 
-        private static string ParseInteger(int? integer)
+        private static int ParseInteger(int? integer)
         {
-            return integer?.ToString() ?? string.Empty;
+            return integer ?? 0;
         }
 
         protected void GetById(int id)
         {
-            string sqlQuery = string.Format("SELECT * FROM {0} INNER JOIN {1} ON {0}.RequestType = {1}.RequestTypeId WHERE {0}.RequestId=@Id;", DatabaseHelper.BiRequestTable, DatabaseHelper.BiRequestTypeTable);
+            string sqlQuery = string.Format("SELECT * FROM {0} INNER JOIN {1} ON {0}.RequestTypeId = {1}.Id WHERE {0}.Id=@Id;", DatabaseHelper.BiRequestTable, DatabaseHelper.BiRequestTypeTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -65,7 +74,7 @@ namespace BiRequestWeb.BIRequest
                     dateRequired.Text = ParseDate(dataReader["DateRequired"] as DateTime?);
                     executiveSponsor.Text = dataReader["ExecutiveSponsor"] as string;
                     requestName.Text = dataReader["RequestName"] as string;
-                    requestType.Text = dataReader["RequestTypeTitle"] as string;
+                    requestType.Text = dataReader["RequestTypeLabel"] as string;
                     natureOfRequest.Text = dataReader["RequestNature"] as string;
                     informationRequired.Text = dataReader["InformationRequired"] as string;
                     parametersRequired.Text = dataReader["ParametersRequired"] as string;
@@ -76,5 +85,35 @@ namespace BiRequestWeb.BIRequest
                 sqlConnection.Close();
             }
         }
+
+        private static IEnumerable<Attachment> GetAttachments(int requestId)
+        {
+            var attachments = new List<Attachment>();
+            var sqlQuery = string.Format("SELECT [Id], [FileName] FROM {0} WHERE RequestId=@RequestId;", DatabaseHelper.AttachmentTable);
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
+            using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+            {
+                sqlCommand.Parameters.AddWithValue("@RequestId", requestId);
+                sqlConnection.Open();
+                var dataReader = sqlCommand.ExecuteReader();
+                if (!dataReader.HasRows) return attachments;
+                while (dataReader.Read())
+                {
+                    attachments.Add(new Attachment
+                    {
+                        AttatchmentId = ParseInteger(dataReader["Id"] as int?),
+                        FileName = dataReader["FileName"] as string
+                    });
+                }
+                sqlConnection.Close();
+            }
+            return attachments;
+        }
+    }
+
+    class Attachment
+    {
+        public int AttatchmentId { get; set; }
+        public string FileName { get; set; }
     }
 }

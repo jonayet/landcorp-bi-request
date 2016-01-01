@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
-using System.Web;
 using System.Web.UI.WebControls;
 
 namespace BiRequestWeb.BIRequest
@@ -68,8 +66,8 @@ namespace BiRequestWeb.BIRequest
                 {
                     var biRequest = new ListItem
                     {
-                        Value = Convert.ToInt32(dataReader["RequestTypeId"]).ToString(),
-                        Text = dataReader["RequestTypeTitle"] as string
+                        Value = Convert.ToInt32(dataReader["Id"]).ToString(),
+                        Text = dataReader["RequestTypeLabel"] as string
                     };
                     result.Add(biRequest);
                 }
@@ -81,8 +79,8 @@ namespace BiRequestWeb.BIRequest
         private int InsertRequest()
         {
             int createdItemId;
-            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestType, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, ApprovalStatus) " +
-                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestType, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @ApprovalStatus); SELECT SCOPE_IDENTITY();", DatabaseHelper.BiRequestTable);
+            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestTypeId, RequestNature, InformationRequired, ParametersRequired, GroupingRequirments, PeopleToShare, AdditionalComments, DateReviewed, EstimatedHours, BusinessCaseId, Comments, CreatedOn) " +
+                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestTypeId, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirments, @PeopleToShare, @AdditionalComments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @Comments, @CreatedOn); SELECT SCOPE_IDENTITY();", DatabaseHelper.BiRequestTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -94,7 +92,7 @@ namespace BiRequestWeb.BIRequest
                 sqlCommand.Parameters.AddWithValue("@ExecutiveSponsorId", ParseText(executiveSponsorId.Value));
                 sqlCommand.Parameters.AddWithValue("@ExecutiveSponsor", ParseText(executiveSponsor.Text));
                 sqlCommand.Parameters.AddWithValue("@RequestName", ParseText(requestName.Text));
-                sqlCommand.Parameters.AddWithValue("@RequestType", ParseInteger(requestType.SelectedValue));
+                sqlCommand.Parameters.AddWithValue("@RequestTypeId", ParseInteger(requestType.SelectedValue));
                 sqlCommand.Parameters.AddWithValue("@RequestNature", ParseText(natureOfRequest.Text));
                 sqlCommand.Parameters.AddWithValue("@InformationRequired", ParseText(informationRequired.Text));
                 sqlCommand.Parameters.AddWithValue("@ParametersRequired", ParseText(parametersRequired.Text));
@@ -105,7 +103,7 @@ namespace BiRequestWeb.BIRequest
                 sqlCommand.Parameters.AddWithValue("@EstimatedHours", ParseText(estimatedHours.Text));
                 sqlCommand.Parameters.AddWithValue("@BusinessCaseId", ParseText(businessCaseID.Text));
                 sqlCommand.Parameters.AddWithValue("@Comments", ParseText(internalComments.Text));
-                sqlCommand.Parameters.AddWithValue("@ApprovalStatus", DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
 
                 sqlConnection.Open();
                 createdItemId = Convert.ToInt32(sqlCommand.ExecuteScalar());
@@ -117,8 +115,8 @@ namespace BiRequestWeb.BIRequest
         private int InsertAttachment(int requestId, string fileName, string contentType, long contentLength, byte[] fileContent)
         {
             int createdItemId;
-            var sqlQuery = string.Format("INSERT INTO {0} (RequestId, FileName, ContentType, ContentLength, FileContent) " +
-                                       "VALUES (@RequestId, @FileName, @ContentType, @ContentLength, @FileContent); SELECT SCOPE_IDENTITY();", DatabaseHelper.AttachmentTable);
+            var sqlQuery = string.Format("INSERT INTO {0} (RequestId, FileName, ContentType, ContentLength, FileContent, CreatedOn) " +
+                                       "VALUES (@RequestId, @FileName, @ContentType, @ContentLength, @FileContent, @CreatedOn); SELECT SCOPE_IDENTITY();", DatabaseHelper.AttachmentTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -128,6 +126,7 @@ namespace BiRequestWeb.BIRequest
                 sqlCommand.Parameters.AddWithValue("@ContentType", contentType);
                 sqlCommand.Parameters.AddWithValue("@ContentLength", contentLength);
                 sqlCommand.Parameters.AddWithValue("@FileContent", fileContent);
+                sqlCommand.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
                 sqlConnection.Open();
                 createdItemId = Convert.ToInt32(sqlCommand.ExecuteScalar());
                 sqlConnection.Close();
