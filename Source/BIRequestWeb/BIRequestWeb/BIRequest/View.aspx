@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <label for="nameOfRequestor" class="col-md-3 control-label">Name of Requestor</label>
                     <div class="col-md-9">
-                        <asp:TextBox runat="server" ClientIDMode="Static" ID="nameOfRequestor" ReadOnly="True" class="form-control" />
+                        <asp:TextBox runat="server" ClientIDMode="Static" ID="requestorName" ReadOnly="True" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">

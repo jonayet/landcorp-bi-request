@@ -10,10 +10,9 @@ namespace BiRequestWeb
             var settings = new FriendlyUrlSettings {AutoRedirectMode = RedirectMode.Permanent};
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("new", "new", "~/BIRequest/Create.aspx", true);
-            routes.MapPageRoute("", "", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("", "", "~/BIRequest/Create.aspx", true);
             routes.MapPageRoute("id", "{id}", "~/BIRequest/View.aspx", true);
-            routes.MapPageRoute("id-role", "{id}/{role}", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("id-role", "{id}/{role}", "~/BIRequest/Admin.aspx", true);
         }
     }
 }

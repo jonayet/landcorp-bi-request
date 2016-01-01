@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 using BiRequestWeb.DAL;
 using BiRequestWeb.Entities;
 
 namespace BiRequestWeb.BIRequest
 {
-    public partial class Create : System.Web.UI.Page
+    public partial class FinAdmin : System.Web.UI.Page
     {
         private Repository _repo;
         protected void Page_Init(object sender, EventArgs e)
@@ -16,9 +17,24 @@ namespace BiRequestWeb.BIRequest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) return;
-            var requestId = _repo.InsertRequestForm(GetRequestFormData());
-            SaveAttachments(requestId);
+            int requestId;
+            if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
+
+            UpdateRequestFormView(_repo.GetRequestForm(requestId));
+            tblAttachments.CssClass = "table table-condensed";
+            foreach (var attachment in _repo.GetAttachments(requestId))
+            {
+                var row = new TableRow();
+                var cell = new TableCell { Text = attachment.FileName };
+                row.Cells.Add(cell);
+                tblAttachments.Rows.Add(row);
+            }
+
+            if (IsPostBack)
+            {
+                requestId = _repo.InsertRequestForm(GetRequestFormData());
+                SaveAttachments(requestId);
+            }
         }
 
         private void SaveAttachments(int requestId)
@@ -58,8 +74,32 @@ namespace BiRequestWeb.BIRequest
                 ParametersRequired = DataTransformer.ParseText(parametersRequired.Text),
                 GroupingRequirements = DataTransformer.ParseText(groupingRequirements.Text),
                 PeopleToShare = DataTransformer.ParseText(peopleToShare.Text),
-                Comments = DataTransformer.ParseText(comments.Text)
+                Comments = DataTransformer.ParseText(comments.Text),
+                DateReviewed = DataTransformer.ParseDateString(dateReviewed.Text),
+                EstimatedHours = DataTransformer.ParseIntString(estimatedHours.Text),
+                BusinessCaseId = DataTransformer.ParseText(businessCaseID.Text),
+                ApprovalComments = DataTransformer.ParseText(approvalComments.Text)
             };
+        }
+
+        private void UpdateRequestFormView(RequestForm requestForm)
+        {
+            requestorName.Text = requestForm.RequestorName;
+            dateRequested.Text = DataTransformer.ConvertDateToString(requestForm.DateRequested);
+            dateRequired.Text = DataTransformer.ConvertDateToString(requestForm.DateRequired);
+            executiveSponsor.Text = requestForm.ExecutiveSponsor;
+            requestName.Text = requestForm.RequestName;
+            requestType.Text = requestForm.RequestTypeLabel;
+            natureOfRequest.Text = requestForm.RequestNature;
+            informationRequired.Text = requestForm.InformationRequired;
+            parametersRequired.Text = requestForm.ParametersRequired;
+            groupingRequirements.Text = requestForm.GroupingRequirements;
+            peopleToShare.Text = requestForm.PeopleToShare;
+            comments.Text = requestForm.Comments;
+            dateReviewed.Text = DataTransformer.ConvertDateToString(requestForm.DateReviewed);
+            estimatedHours.Text = requestForm.EstimatedHours.ToString();
+            businessCaseID.Text = requestForm.BusinessCaseId;
+            approvalComments.Text = requestForm.ApprovalComments;
         }
     }
 }

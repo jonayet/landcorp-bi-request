@@ -37,7 +37,7 @@ namespace BiRequestWeb.BIRequest
 
         private void UpdateRequestFormView(RequestForm requestForm)
         {
-            nameOfRequestor.Text = requestForm.RequestorName;
+            requestorName.Text = requestForm.RequestorName;
             dateRequested.Text = DataTransformer.ConvertDateToString(requestForm.DateRequested);
             dateRequired.Text = DataTransformer.ConvertDateToString(requestForm.DateRequired);
             executiveSponsor.Text = requestForm.ExecutiveSponsor;

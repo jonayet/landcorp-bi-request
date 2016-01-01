@@ -110,6 +110,7 @@
     <Folder Include="Scripts\locales\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BIRequest\Admin.aspx" />
     <Content Include="BIRequest\View.aspx" />
     <Content Include="BIRequest\Create.aspx" />
     <Content Include="BirequestWebService.asmx" />
@@ -207,6 +208,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BIRequest\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BIRequest\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BIRequest\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
