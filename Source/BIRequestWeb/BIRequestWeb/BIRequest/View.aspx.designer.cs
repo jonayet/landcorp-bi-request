@@ -112,13 +112,13 @@ namespace BiRequestWeb.BIRequest {
         protected global::System.Web.UI.WebControls.TextBox peopleToShare;
         
         /// <summary>
-        /// additionalComments control.
+        /// comments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox additionalComments;
+        protected global::System.Web.UI.WebControls.TextBox comments;
         
         /// <summary>
         /// tblAttachments control.
@@ -128,5 +128,41 @@ namespace BiRequestWeb.BIRequest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblAttachments;
+        
+        /// <summary>
+        /// dateReviewed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateReviewed;
+        
+        /// <summary>
+        /// estimatedHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox estimatedHours;
+        
+        /// <summary>
+        /// businessCaseID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox businessCaseID;
+        
+        /// <summary>
+        /// approvalComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox approvalComments;
     }
 }

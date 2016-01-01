@@ -130,13 +130,13 @@ namespace BiRequestWeb.BIRequest {
         protected global::System.Web.UI.WebControls.TextBox peopleToShare;
         
         /// <summary>
-        /// additionalComments control.
+        /// comments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox additionalComments;
+        protected global::System.Web.UI.WebControls.TextBox comments;
         
         /// <summary>
         /// FileUpload control.
@@ -175,12 +175,12 @@ namespace BiRequestWeb.BIRequest {
         protected global::System.Web.UI.WebControls.TextBox businessCaseID;
         
         /// <summary>
-        /// internalComments control.
+        /// approvalComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox internalComments;
+        protected global::System.Web.UI.WebControls.TextBox approvalComments;
     }
 }
