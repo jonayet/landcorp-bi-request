@@ -125,6 +125,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.filer-icons\jquery-filer.css" />
+    <Content Include="Content\jquery.filer-icons\jquery-filer.svg" />
+    <Content Include="Content\jquery.filer.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\twitter-typeahead.css" />
     <Content Include="Content\typeahead.css" />
@@ -138,12 +141,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\jquery.filer.js" />
+    <Content Include="Scripts\jquery.filer.min.js" />
     <Content Include="Scripts\bloodhound.js" />
     <Content Include="Scripts\bloodhound.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\jquery.filer-icons\jquery-filer.eot" />
+    <Content Include="Content\jquery.filer-icons\jquery-filer.ttf" />
+    <Content Include="Content\jquery.filer-icons\jquery-filer.woff" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

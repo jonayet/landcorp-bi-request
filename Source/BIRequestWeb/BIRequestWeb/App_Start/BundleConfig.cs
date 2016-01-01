@@ -61,6 +61,13 @@ namespace BiRequestWeb
                     Path = "~/Scripts/jquery.simplyCountable.min.js",
                     DebugPath = "~/Scripts/jquery.simplyCountable.js"
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery-filer",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/jquery.filer.min.js",
+                    DebugPath = "~/Scripts/jquery.filer.js"
+                });
         }
     }
 }

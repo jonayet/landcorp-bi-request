@@ -37,6 +37,7 @@
                 <asp:ScriptReference Name="bootstrap-datepicker" />
                 <asp:ScriptReference Name="bootstrap-typeahead" />
                 <asp:ScriptReference Name="jquery-simplyCountable" />
+                <asp:ScriptReference Name="jquery-filer" />
             </Scripts>
         </asp:ScriptManager>
 

@@ -11,7 +11,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" ClientIDMode="Static" ID="requestor" class="form-control twitter-typeahead" placeholder="Name of Requestor" />
                     </div>
-                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="requestorId"/>
+                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="requestorId" />
                 </div>
                 <div class="form-group">
                     <label for="dateRequested" class="col-md-3 control-label">Date Requested</label>
@@ -29,7 +29,7 @@
                     <div class="col-md-9">
                         <asp:TextBox runat="server" ClientIDMode="Static" ID="executiveSponsor" class="form-control twitter-typeahead" placeholder="Executive Sponsor" />
                     </div>
-                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="executiveSponsorId"/>
+                    <asp:HiddenField runat="server" ClientIDMode="Static" ID="executiveSponsorId" />
                 </div>
 
                 <div class="form-group">
@@ -111,6 +111,18 @@
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="additionalComments" class="form-control" Rows="4"
                             placeholder="Additional Comments" />
                         <p class="small text-muted">You have <span id="additionalCommentsCounter"></span>&nbsp;letter(s) left.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label for="informationRequired" class="control-label">Attachments</label>
+                    </div>
+                    <div class="col-md-9">
+                        <asp:FileUpload runat="server" accept="*" ClientIDMode="Static" ID="FileUpload" multiple="multiple" />
                     </div>
                 </div>
             </div>
@@ -204,6 +216,13 @@
                 autoclose: true
             });
 
+            $('#FileUpload').filer({
+                showThumbs: true,
+                addMore: true,
+                files: [
+                ]
+            });
+
             $("#natureOfRequest").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#natureOfRequestCounter' });
             $("#informationRequired").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#informationRequiredCounter' });
             $("#parametersRequired").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#parametersRequiredCounter' });
@@ -232,7 +251,7 @@
                     display: 'FullName',
                     source: typeaheadData,
                     limit: 6
-                }).on('typeahead:select', function(ev, suggestion) {
+                }).on('typeahead:select', function (ev, suggestion) {
                     $(id + 'Id').val(suggestion.Id);
                 });
             }

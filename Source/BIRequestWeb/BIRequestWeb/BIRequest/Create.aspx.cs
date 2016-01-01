@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace BiRequestWeb.BIRequest
@@ -18,6 +20,24 @@ namespace BiRequestWeb.BIRequest
             if (IsPostBack)
             {
                 Insert();
+            }
+        }
+
+        private void SaveUploadedFiles()
+        {
+            // check if file has been selected
+            HttpFileCollection files = Request.Files;
+            for (int i = 0; i < files.Count; i++)
+            {
+                HttpPostedFile file = files[i];
+                if (file.ContentLength > 0)
+                {
+                    string path = Server.MapPath("~/Uploads/");
+                    string fileName = Path.GetFileName(file.FileName);
+
+                    // now save the file to the disk
+                    file.SaveAs(path + fileName);
+                }
             }
         }
 
