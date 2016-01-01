@@ -12,28 +12,33 @@ namespace BiRequestWeb.BIRequest
         {
             _repo = new Repository();
             requestType.Items.AddRange(_repo.GetBiRequestTypes());
-            requestType.Items[0].Selected = true;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             int requestId;
             if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
+            if (!IsPostBack)
+            {
+                var requestForm = _repo.GetRequestForm(requestId);
+                UpdateRequestType(requestForm.RequestTypeId);
+                UpdateRequestFormView(requestForm);
+            }
+            else
+            {
+                _repo.UpdateRequestForm(requestId, GetRequestFormData());
+                SaveAttachments(requestId);
+            }
 
-            UpdateRequestFormView(_repo.GetRequestForm(requestId));
-            tblAttachments.CssClass = "table table-condensed";
+            tblAttachments.CssClass = "table table-condensed table-hover";
             foreach (var attachment in _repo.GetAttachments(requestId))
             {
                 var row = new TableRow();
                 var cell = new TableCell { Text = attachment.FileName };
                 row.Cells.Add(cell);
+                cell = new TableCell {Text = attachment.Id.ToString(), CssClass = "hide"};
+                row.Cells.Add(cell);
                 tblAttachments.Rows.Add(row);
-            }
-
-            if (IsPostBack)
-            {
-                requestId = _repo.InsertRequestForm(GetRequestFormData());
-                SaveAttachments(requestId);
             }
         }
 
@@ -82,6 +87,17 @@ namespace BiRequestWeb.BIRequest
             };
         }
 
+        private void UpdateRequestType(int? requestTypeId)
+        {
+            for (var i = 0; i < requestType.Items.Count; i++)
+            {
+                if (requestType.Items[i].Value == requestTypeId?.ToString())
+                {
+                    requestType.Items[i].Selected = true;
+                }
+            }
+        }
+
         private void UpdateRequestFormView(RequestForm requestForm)
         {
             requestorName.Text = requestForm.RequestorName;
@@ -89,7 +105,6 @@ namespace BiRequestWeb.BIRequest
             dateRequired.Text = DataTransformer.ConvertDateToString(requestForm.DateRequired);
             executiveSponsor.Text = requestForm.ExecutiveSponsor;
             requestName.Text = requestForm.RequestName;
-            requestType.Text = requestForm.RequestTypeLabel;
             natureOfRequest.Text = requestForm.RequestNature;
             informationRequired.Text = requestForm.InformationRequired;
             parametersRequired.Text = requestForm.ParametersRequired;

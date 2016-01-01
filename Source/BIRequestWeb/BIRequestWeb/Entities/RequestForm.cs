@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 namespace BiRequestWeb.Entities
@@ -28,5 +29,14 @@ namespace BiRequestWeb.Entities
         public string BusinessCaseId { get; set; }
         public string ApprovalComments { get; set; }
         public DateTime? CreatedOn { get; set; }
+
+        public Dictionary<string, object> ToDictionary()
+        {
+            return GetType().GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance).ToDictionary
+                (
+                    propInfo => propInfo.Name,
+                    propInfo => propInfo.GetValue(this, null)
+                );
+        }
     }
 }

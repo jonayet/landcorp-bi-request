@@ -208,7 +208,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-lg">Submit Form</button>
+            <button type="submit" class="btn btn-primary btn-lg">Update</button>
         </div>
     </div>
 
@@ -258,8 +258,26 @@
                 });
             }
 
-            bindTypeahead("#requestor");
+            bindTypeahead("#requestorName");
             bindTypeahead("#executiveSponsor");
+
+            $('#tblAttachments > tbody > tr').click(function () {
+                $(this, 'tr').each(function(index, tr) {
+                    var lines = $('td', tr).map(function(index, td) {
+                        return $(td).text();
+                    });
+                    var attachmentId = lines[1];
+
+                    $.ajax({
+                        url: '/BirequestWebService.asmx/DownloadAttachment',
+                        type: 'POST',
+                        data: { attachmentId: attachmentId },
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+                });
+            });
         });
     </script>
 </asp:Content>

@@ -131,7 +131,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-lg">Submit Form</button>
+            <button type="submit" class="btn btn-primary btn-lg">Save</button>
         </div>
     </div>
 
@@ -180,7 +180,7 @@
                 });
             }
 
-            bindTypeahead("#requestor");
+            bindTypeahead("#requestorName");
             bindTypeahead("#executiveSponsor");
         });
     </script>

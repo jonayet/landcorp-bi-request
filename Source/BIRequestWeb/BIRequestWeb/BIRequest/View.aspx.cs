@@ -25,7 +25,7 @@ namespace BiRequestWeb.BIRequest
             if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
 
             UpdateRequestFormView(_repo.GetRequestForm(requestId));
-            tblAttachments.CssClass = "table table-condensed";
+            tblAttachments.CssClass = "table table-condensed table-hover";
             foreach (var attachment in _repo.GetAttachments(requestId))
             {
                 var row = new TableRow();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web.UI.WebControls;
 using BiRequestWeb.Entities;
 
@@ -131,6 +132,62 @@ namespace BiRequestWeb.DAL
             return attachments;
         }
 
+        public AttachmentFile GetAttachment(int attachmentId)
+        {
+            AttachmentFile attachmentFile = new AttachmentFile();
+            var sqlQuery = string.Format("SELECT * FROM {0} WHERE Id=@Id;", DatabaseHelper.AttachmentTable);
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
+            using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+            {
+                sqlCommand.Parameters.AddWithValue("@Id", attachmentId);
+                sqlConnection.Open();
+                var dataReader = sqlCommand.ExecuteReader();
+                if (!dataReader.HasRows) return attachmentFile;
+                if(dataReader.Read())
+                {
+                    attachmentFile.Id = DataTransformer.ParseNullableLong(dataReader["Id"] as long?);
+                    attachmentFile.RequestId = dataReader["RequestId"] as long?;
+                    attachmentFile.FileName = dataReader["FileName"] as string;
+                    attachmentFile.ContentType = dataReader["ContentType"] as string;
+                    attachmentFile.ContentLength = dataReader["ContentLength"] as long?;
+                    attachmentFile.FileContent = dataReader["FileContent"] as byte[];
+                }
+                sqlConnection.Close();
+            }
+            return attachmentFile;
+        }
+
+        public void UpdateRequestForm(int id, RequestForm requestForm)
+        {
+            var request = requestForm.ToDictionary();
+
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
+            using (var sqlCommand = new SqlCommand())
+            {
+                var sqlQuery = string.Format("UPDATE {0} SET ", DatabaseHelper.BiRequestTable);
+                foreach (var property in request.Where(p => p.Value != null).Where(p => p.Key != "Id"))
+                {
+                    object value;
+                    if (property.Value is DateTime)
+                        value = Convert.ToDateTime(property.Value).ToString("yyyy-MM-dd");
+                    else
+                        value = property.Value;
+
+                    var parameter = "@" + property.Key;
+                    sqlQuery += property.Key + "=" + parameter + ",";
+                    sqlCommand.Parameters.AddWithValue(parameter, value);
+                }
+                sqlQuery = sqlQuery.Remove(sqlQuery.Length - 1) + " WHERE Id=@Id;";
+                sqlCommand.Parameters.AddWithValue("@Id", id);
+
+                sqlCommand.CommandText = sqlQuery;
+                sqlCommand.Connection = sqlConnection;
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+        }
+
         public ListItem[] GetBiRequestTypes()
         {
             var result = new List<ListItem>();
@@ -154,6 +211,32 @@ namespace BiRequestWeb.DAL
                 sqlConnection.Close();
             }
             return result.ToArray();
+        }
+
+        public IEnumerable<User> GetUser(string query, int limit = 10)
+        {
+            var result = new List<User>();
+            var sqlQuery = string.Format("SELECT TOP {0} [UserId],[FullName] FROM {1} WHERE FullName LIKE @Query;", limit, DatabaseHelper.AdminUserTable);
+
+            using (var sqlConnection = new SqlConnection(DatabaseHelper.AdminConnectionString))
+            using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
+            {
+                sqlCommand.Parameters.AddWithValue("@Query", "%" + query + "%");
+                sqlConnection.Open();
+                var dataReader = sqlCommand.ExecuteReader();
+                if (!dataReader.HasRows) return result;
+                while (dataReader.Read())
+                {
+                    var user = new User
+                    {
+                        Id = Convert.ToInt32(dataReader["UserId"]),
+                        FullName = dataReader["FullName"] as string
+                    };
+                    result.Add(user);
+                }
+                sqlConnection.Close();
+            }
+            return result;
         }
     }
 }

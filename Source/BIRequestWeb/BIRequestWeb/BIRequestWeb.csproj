@@ -239,6 +239,7 @@
     <Compile Include="Entities\AttachmentFile.cs" />
     <Compile Include="Entities\RequestForm.cs" />
     <Compile Include="Entities\RequestType.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="ErrorPages\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

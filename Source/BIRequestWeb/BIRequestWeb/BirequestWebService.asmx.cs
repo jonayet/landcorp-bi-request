@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
+﻿using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Web.Script.Services;
 using System.Web.Services;
 using BiRequestWeb.DAL;
+using BiRequestWeb.Entities;
 using Newtonsoft.Json;
 
 namespace BiRequestWeb
@@ -16,41 +15,27 @@ namespace BiRequestWeb
         [WebMethod]
         public void SearchUser(string query)
         {
-            var possibleResponses = Get(query);
+            var possibleResponses = new Repository().GetUser(query);
             Context.Response.ContentType = "application/json; charset=utf-8";
             Context.Response.Write(JsonConvert.SerializeObject(possibleResponses));
         }
 
-        public IEnumerable<User> Get(string query, int limit = 10)
+        [WebMethod]
+        public void DownloadAttachment(string attachmentId)
         {
-            var result = new List<User>();
-            var sqlQuery = string.Format("SELECT TOP {0} [UserId],[FullName] FROM {1} WHERE FullName LIKE @Query;", limit, DatabaseHelper.AdminUserTable);
+            int id;
+            if (!int.TryParse(attachmentId, out id)) return;
+            AttachmentFile attachment = new Repository().GetAttachment(id);
 
-            using (var sqlConnection = new SqlConnection(DatabaseHelper.AdminConnectionString))
-            using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
-            {
-                sqlCommand.Parameters.AddWithValue("@Query", "%" + query + "%");
-                sqlConnection.Open();
-                var dataReader = sqlCommand.ExecuteReader();
-                if (!dataReader.HasRows) return result;
-                while (dataReader.Read())
-                {
-                    var user = new User
-                    {
-                        Id = Convert.ToInt32(dataReader["UserId"]),
-                        FullName = dataReader["FullName"] as string
-                    };
-                    result.Add(user);
-                }
-                sqlConnection.Close();
-            }
-            return result;
+            Context.Response.ContentType = attachment.ContentType;
+            Context.Response.AppendHeader("Content-Disposition", "attachment; filename=" + attachment.FileName);
+
+            MemoryStream ms = new MemoryStream();
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(ms, attachment.FileContent);
+
+            Context.Response.BinaryWrite(ms.ToArray());
+            Context.Response.Flush();
         }
-    }
-
-    public class User
-    {
-        public int Id { get; set; }
-        public string FullName { get; set; }
     }
 }
