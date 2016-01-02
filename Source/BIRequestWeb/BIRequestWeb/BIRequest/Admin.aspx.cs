@@ -7,6 +7,7 @@ namespace BiRequestWeb.BIRequest
 {
     public partial class FinAdmin : System.Web.UI.Page
     {
+        private const string AdminRole = "admin";
         private Repository _repo;
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -18,6 +19,13 @@ namespace BiRequestWeb.BIRequest
         {
             int requestId;
             if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
+
+            var role = Page.RouteData.Values["role"] as string;
+            if (role != AdminRole)
+            {
+                Response.RedirectPermanent("~/"+ requestId);
+            }
+
             if (!IsPostBack)
             {
                 var requestForm = _repo.GetRequestForm(requestId);
