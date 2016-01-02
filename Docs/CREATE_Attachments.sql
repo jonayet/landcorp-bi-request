@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[Attachments]    Script Date: 1/1/2016 10:55:40 PM ******/
+/****** Object:  Table [dbo].[Attachments]    Script Date: 1/2/2016 12:03:36 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,7 @@ GO
 
 CREATE TABLE [dbo].[Attachments](
 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[FileName] [nvarchar](50) NULL,
+	[FileName] [nvarchar](100) NULL,
 	[ContentType] [nvarchar](50) NOT NULL,
 	[ContentLength] [bigint] NOT NULL,
 	[FileContent] [varbinary](max) NOT NULL,

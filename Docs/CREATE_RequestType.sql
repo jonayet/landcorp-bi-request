@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[RequestType]    Script Date: 1/1/2016 10:55:57 PM ******/
+/****** Object:  Table [dbo].[RequestType]    Script Date: 1/2/2016 12:03:48 PM ******/
 SET ANSI_NULLS ON
 GO
 
