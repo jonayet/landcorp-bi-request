@@ -34,7 +34,7 @@ namespace BiRequestWeb.BIRequest
             foreach (var attachment in _repo.GetAttachments(requestId))
             {
                 var row = new TableRow();
-                var cell = new TableCell { Text = attachment.FileName };
+                var cell = new TableCell {Text = attachment.FileName, CssClass = "cursor-hand"};
                 row.Cells.Add(cell);
                 cell = new TableCell {Text = attachment.Id.ToString(), CssClass = "hide"};
                 row.Cells.Add(cell);

@@ -5,6 +5,8 @@ body {
     font-family: "Gotham", "Calibri", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
+.cursor-hand { cursor: pointer;}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {

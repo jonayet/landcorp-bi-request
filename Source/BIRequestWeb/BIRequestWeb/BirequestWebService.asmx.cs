@@ -19,23 +19,5 @@ namespace BiRequestWeb
             Context.Response.ContentType = "application/json; charset=utf-8";
             Context.Response.Write(JsonConvert.SerializeObject(possibleResponses));
         }
-
-        [WebMethod]
-        public void DownloadAttachment(string attachmentId)
-        {
-            int id;
-            if (!int.TryParse(attachmentId, out id)) return;
-            AttachmentFile attachment = new Repository().GetAttachment(id);
-
-            Context.Response.ContentType = attachment.ContentType;
-            Context.Response.AppendHeader("Content-Disposition", "attachment; filename=" + attachment.FileName);
-
-            MemoryStream ms = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(ms, attachment.FileContent);
-
-            Context.Response.BinaryWrite(ms.ToArray());
-            Context.Response.Flush();
-        }
     }
 }

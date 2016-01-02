@@ -132,6 +132,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\twitter-typeahead.css" />
     <Content Include="Content\typeahead.css" />
+    <Content Include="_Download.aspx" />
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="ErrorPages\Oops.aspx" />
     <Content Include="ErrorPages\Unauthorised.aspx" />
@@ -236,6 +237,13 @@
     <Compile Include="DAL\DataTransformer.cs" />
     <Compile Include="DAL\Repository.cs" />
     <Compile Include="DAL\DatabaseHelper.cs" />
+    <Compile Include="_Download.aspx.cs">
+      <DependentUpon>_Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Download.aspx.designer.cs">
+      <DependentUpon>_Download.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entities\AttachmentFile.cs" />
     <Compile Include="Entities\RequestForm.cs" />
     <Compile Include="Entities\RequestType.cs" />

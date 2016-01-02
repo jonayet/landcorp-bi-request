@@ -25,11 +25,13 @@ namespace BiRequestWeb.BIRequest
             if (!int.TryParse(Page.RouteData.Values["id"] as string, out requestId)) return;
 
             UpdateRequestFormView(_repo.GetRequestForm(requestId));
-            tblAttachments.CssClass = "table table-condensed table-hover";
+            tblAttachments.CssClass = "table table-condensed table-hover cur";
             foreach (var attachment in _repo.GetAttachments(requestId))
             {
                 var row = new TableRow();
-                var cell = new TableCell {Text = attachment.FileName};
+                var cell = new TableCell { Text = attachment.FileName, CssClass = "cursor-hand" };
+                row.Cells.Add(cell);
+                cell = new TableCell { Text = attachment.Id.ToString(), CssClass = "hide" };
                 row.Cells.Add(cell);
                 tblAttachments.Rows.Add(row);
             }

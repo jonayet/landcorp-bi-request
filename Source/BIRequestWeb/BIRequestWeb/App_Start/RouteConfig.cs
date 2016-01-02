@@ -11,6 +11,8 @@ namespace BiRequestWeb
             routes.EnableFriendlyUrls(settings);
 
             routes.MapPageRoute("", "", "~/BIRequest/Create.aspx", true);
+            routes.MapPageRoute("download-empty", "download", "~/_Download.aspx", true);
+            routes.MapPageRoute("download", "download/{id}", "~/_Download.aspx", true);
             routes.MapPageRoute("id", "{id}", "~/BIRequest/View.aspx", true);
             routes.MapPageRoute("id-role", "{id}/{role}", "~/BIRequest/Admin.aspx", true);
         }

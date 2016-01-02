@@ -267,15 +267,7 @@
                         return $(td).text();
                     });
                     var attachmentId = lines[1];
-
-                    $.ajax({
-                        url: '/BirequestWebService.asmx/DownloadAttachment',
-                        type: 'POST',
-                        data: { attachmentId: attachmentId },
-                        success: function (data) {
-                            console.log(data);
-                        }
-                    });
+                    window.open("/download/" + attachmentId, '_blank');
                 });
             });
         });

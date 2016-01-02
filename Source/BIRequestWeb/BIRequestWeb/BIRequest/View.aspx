@@ -189,4 +189,18 @@
             </tbody>
         </table>
     </fieldset>
+    
+    <script>
+        $(function () {
+            $('#tblAttachments > tbody > tr').click(function () {
+                $(this, 'tr').each(function(index, tr) {
+                    var lines = $('td', tr).map(function(index, td) {
+                        return $(td).text();
+                    });
+                    var attachmentId = lines[1];
+                    window.open("/download/" + attachmentId, '_blank');
+                });
+            });
+        });
+    </script>
 </asp:Content>
