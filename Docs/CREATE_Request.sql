@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[Request]    Script Date: 1/2/2016 12:03:42 PM ******/
+/****** Object:  Table [dbo].[Request]    Script Date: 1/16/2016 12:56:34 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[Request](
 	[GroupingRequirements] [nvarchar](4000) NULL,
 	[PeopleToShare] [nvarchar](4000) NULL,
 	[ApprovalComments] [nvarchar](4000) NULL,
-	[DateReviewed] [datetime2](7) NULL,
+	[DateReviewed] [date] NULL,
 	[EstimatedHours] [int] NULL,
 	[BusinessCaseId] [nvarchar](50) NULL,
 	[Comments] [nvarchar](4000) NULL,

@@ -20,6 +20,11 @@ namespace BiRequestWeb.DAL
             return dateTime?.ToString("d");
         }
 
+        public static object ConvertDateToIso8601(DateTime? dateTime)
+        {
+            return dateTime?.ToString("O");
+        }
+
         public static int? ParseIntString(string intString)
         {
             int i;

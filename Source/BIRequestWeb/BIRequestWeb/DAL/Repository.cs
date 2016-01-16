@@ -20,8 +20,8 @@ namespace BiRequestWeb.DAL
             {
                 sqlCommand.Parameters.AddWithValue("@RequestorId", (object)requestForm.RequestorId ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@RequestorName", (object)requestForm.RequestorName ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@DateRequested", (object) requestForm.DateRequested ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@DateRequired", (object)requestForm.DateRequired ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@DateRequested", DataTransformer.ConvertDateToIso8601(requestForm.DateRequested) ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@DateRequired", DataTransformer.ConvertDateToIso8601(requestForm.DateRequired) ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@ExecutiveSponsorId", (object)requestForm.ExecutiveSponsorId ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@ExecutiveSponsor", (object)requestForm.ExecutiveSponsor ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@RequestName", (object)requestForm.RequestName ?? DBNull.Value);
@@ -32,7 +32,7 @@ namespace BiRequestWeb.DAL
                 sqlCommand.Parameters.AddWithValue("@GroupingRequirements", (object)requestForm.GroupingRequirements ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@PeopleToShare", (object)requestForm.PeopleToShare ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@Comments", (object)requestForm.Comments ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@DateReviewed", (object)requestForm.DateReviewed ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@DateReviewed", DataTransformer.ConvertDateToIso8601(requestForm.DateReviewed) ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@EstimatedHours", (object)requestForm.EstimatedHours ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@BusinessCaseId", (object)requestForm.BusinessCaseId ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@ApprovalComments", (object)requestForm.ApprovalComments ?? DBNull.Value);
@@ -169,7 +169,7 @@ namespace BiRequestWeb.DAL
                 {
                     object value;
                     if (property.Value is DateTime)
-                        value = Convert.ToDateTime(property.Value).ToString("yyyy-MM-dd");
+                        value = DataTransformer.ConvertDateToIso8601(property.Value as DateTime?);
                     else
                         value = property.Value;
 
