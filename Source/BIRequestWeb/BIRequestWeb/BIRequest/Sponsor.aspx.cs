@@ -5,7 +5,7 @@ using BiRequestWeb.Entities;
 
 namespace BiRequestWeb.BIRequest
 {
-    public partial class FinAdmin : System.Web.UI.Page
+    public partial class Sponsor : System.Web.UI.Page
     {
         private Repository _repo;
         protected void Page_Init(object sender, EventArgs e)
@@ -81,10 +81,8 @@ namespace BiRequestWeb.BIRequest
                 GroupingRequirements = DataTransformer.ParseText(groupingRequirements.Text),
                 PeopleToShare = DataTransformer.ParseText(peopleToShare.Text),
                 Comments = DataTransformer.ParseText(comments.Text),
-                DateReviewed = DataTransformer.ParseDateString(dateReviewed.Text),
-                EstimatedHours = DataTransformer.ParseIntString(estimatedHours.Text),
-                BusinessCaseId = DataTransformer.ParseText(businessCaseID.Text),
-                AdminComments = DataTransformer.ParseText(adminComments.Text)
+                ApprovedBySponsor = approved.Checked,
+                SponsorComments = DataTransformer.ParseText(sponsorComments.Text)
             };
         }
 
@@ -95,6 +93,7 @@ namespace BiRequestWeb.BIRequest
                 if (requestType.Items[i].Value == requestTypeId?.ToString())
                 {
                     requestType.Items[i].Selected = true;
+                    return;
                 }
             }
         }
@@ -116,6 +115,8 @@ namespace BiRequestWeb.BIRequest
             estimatedHours.Text = requestForm.EstimatedHours.ToString();
             businessCaseID.Text = requestForm.BusinessCaseId;
             adminComments.Text = requestForm.AdminComments;
+            approved.Checked = DataTransformer.ParseNullableBool(requestForm.ApprovedBySponsor);
+            sponsorComments.Text = requestForm.SponsorComments;
         }
     }
 }

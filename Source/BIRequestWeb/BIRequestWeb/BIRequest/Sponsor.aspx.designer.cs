@@ -10,7 +10,7 @@
 namespace BiRequestWeb.BIRequest {
     
     
-    public partial class FinAdmin {
+    public partial class Sponsor {
         
         /// <summary>
         /// requestorName control.
@@ -191,5 +191,23 @@ namespace BiRequestWeb.BIRequest {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox adminComments;
+        
+        /// <summary>
+        /// approved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox approved;
+        
+        /// <summary>
+        /// sponsorComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sponsorComments;
     }
 }

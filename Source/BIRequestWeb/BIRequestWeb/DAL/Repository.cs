@@ -12,8 +12,8 @@ namespace BiRequestWeb.DAL
         public int InsertRequestForm(RequestForm requestForm)
         {
             int createdItemId;
-            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestTypeId, RequestNature, InformationRequired, ParametersRequired, GroupingRequirements, PeopleToShare, Comments, DateReviewed, EstimatedHours, BusinessCaseId, ApprovalComments, CreatedOn) " +
-                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestTypeId, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirements, @PeopleToShare, @Comments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @ApprovalComments, @CreatedOn); SELECT SCOPE_IDENTITY();", DatabaseHelper.BiRequestTable);
+            var sqlQuery = string.Format("INSERT INTO {0} (RequestorName, RequestorId, DateRequested, DateRequired, ExecutiveSponsor, ExecutiveSponsorId, RequestName, RequestTypeId, RequestNature, InformationRequired, ParametersRequired, GroupingRequirements, PeopleToShare, Comments, DateReviewed, EstimatedHours, BusinessCaseId, AdminComments, CreatedOn) " +
+                                       "VALUES (@RequestorName, @RequestorId, @DateRequested, @DateRequired, @ExecutiveSponsor, @ExecutiveSponsorId, @RequestName, @RequestTypeId, @RequestNature, @InformationRequired, @ParametersRequired, @GroupingRequirements, @PeopleToShare, @Comments, @DateReviewed, @EstimatedHours, @BusinessCaseId, @AdminComments, @CreatedOn); SELECT SCOPE_IDENTITY();", DatabaseHelper.BiRequestTable);
 
             using (var sqlConnection = new SqlConnection(DatabaseHelper.BIRequestConnectionString))
             using (var sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -35,7 +35,7 @@ namespace BiRequestWeb.DAL
                 sqlCommand.Parameters.AddWithValue("@DateReviewed", DataTransformer.ConvertDateToIso8601(requestForm.DateReviewed) ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@EstimatedHours", (object)requestForm.EstimatedHours ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@BusinessCaseId", (object)requestForm.BusinessCaseId ?? DBNull.Value);
-                sqlCommand.Parameters.AddWithValue("@ApprovalComments", (object)requestForm.ApprovalComments ?? DBNull.Value);
+                sqlCommand.Parameters.AddWithValue("@AdminComments", (object)requestForm.AdminComments ?? DBNull.Value);
                 sqlCommand.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
 
                 sqlConnection.Open();
@@ -101,7 +101,9 @@ namespace BiRequestWeb.DAL
                     requestForm.DateReviewed = dataReader["DateReviewed"] as DateTime?;
                     requestForm.EstimatedHours = dataReader["EstimatedHours"] as int?;
                     requestForm.BusinessCaseId = dataReader["BusinessCaseId"] as string;
-                    requestForm.ApprovalComments = dataReader["ApprovalComments"] as string;
+                    requestForm.AdminComments = dataReader["AdminComments"] as string;
+                    requestForm.ApprovedBySponsor = dataReader["ApprovedBySponsor"] as bool?;
+                    requestForm.SponsorComments = dataReader["SponsorComments"] as string;
                 }
                 sqlConnection.Close();
             }

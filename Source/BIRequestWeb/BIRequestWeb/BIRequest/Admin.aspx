@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="additionalComments" class="col-md-3 control-label">Comments</label>
+                    <label for="comments" class="col-md-3 control-label">Comments</label>
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="comments" class="form-control" Rows="4"
                             placeholder="Comments" />
@@ -155,11 +155,11 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="internalComments" class="col-md-3 control-label">Approval Comments</label>
+                    <label for="adminComments" class="col-md-3 control-label">Admin Comments</label>
                     <div class="col-md-9">
-                        <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="approvalComments" class="form-control" Rows="3"
-                            placeholder="Approval Comments" />
-                        <p class="small text-muted">You have <span id="approvalCommentsCounter"></span>&nbsp;letter(s) left.</p>
+                        <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="adminComments" class="form-control" Rows="3"
+                            placeholder="Admin Comments" />
+                        <p class="small text-muted">You have <span id="adminCommentsCounter"></span>&nbsp;letter(s) left.</p>
                     </div>
                 </div>
             </div>
@@ -231,7 +231,7 @@
             $("#groupingRequirements").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#groupingRequirementsCounter' });
             $("#peopleToShare").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#peopleToShareCounter' });
             $("#comments").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#commentsCounter' });
-            $("#approvalComments").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#approvalCommentsCounter' });
+            $("#adminComments").simplyCountable({ strictMax: true, maxCount: 4000, counter: '#adminCommentsCounter' });
 
             function typeaheadData(query, sync, async) {
                 $.ajax({

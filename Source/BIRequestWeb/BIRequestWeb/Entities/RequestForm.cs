@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace BiRequestWeb.Entities
 {
@@ -27,7 +26,9 @@ namespace BiRequestWeb.Entities
         public DateTime? DateReviewed { get; set; }
         public int? EstimatedHours { get; set; }
         public string BusinessCaseId { get; set; }
-        public string ApprovalComments { get; set; }
+        public string AdminComments { get; set; }
+        public bool? ApprovedBySponsor { get; set; }
+        public string SponsorComments { get; set; }
         public DateTime? CreatedOn { get; set; }
 
         public Dictionary<string, object> ToDictionary()

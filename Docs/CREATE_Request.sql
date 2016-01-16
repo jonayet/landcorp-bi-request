@@ -1,7 +1,7 @@
 USE [BIRequest]
 GO
 
-/****** Object:  Table [dbo].[Request]    Script Date: 1/16/2016 12:56:34 PM ******/
+/****** Object:  Table [dbo].[Request]    Script Date: 1/16/2016 2:54:30 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,14 +23,14 @@ CREATE TABLE [dbo].[Request](
 	[ParametersRequired] [nvarchar](4000) NULL,
 	[GroupingRequirements] [nvarchar](4000) NULL,
 	[PeopleToShare] [nvarchar](4000) NULL,
-	[ApprovalComments] [nvarchar](4000) NULL,
+	[Comments] [nvarchar](4000) NULL,
 	[DateReviewed] [date] NULL,
 	[EstimatedHours] [int] NULL,
 	[BusinessCaseId] [nvarchar](50) NULL,
-	[Comments] [nvarchar](4000) NULL,
-	[ApprovalStatus] [int] NULL,
+	[AdminComments] [nvarchar](4000) NULL,
+	[ApprovedBySponsor] [bit] NULL,
+	[SponsorComments] [nvarchar](4000) NULL,
 	[CreatedOn] [datetime] NULL,
-	[ApprovedOn] [datetime] NULL,
  CONSTRAINT [PK_Request] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

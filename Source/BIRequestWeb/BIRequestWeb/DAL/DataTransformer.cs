@@ -37,6 +37,11 @@ namespace BiRequestWeb.DAL
             return bigInteger ?? default(long);
         }
 
+        public static bool ParseNullableBool(bool? boolValue)
+        {
+            return boolValue ?? default(bool);
+        }
+
         public static string ParseText(string text)
         {
             return string.IsNullOrWhiteSpace(text) ? null : text;

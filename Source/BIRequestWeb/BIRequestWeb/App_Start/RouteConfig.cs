@@ -14,7 +14,8 @@ namespace BiRequestWeb
             routes.MapPageRoute("download-empty", "download", "~/_Download.aspx", true);
             routes.MapPageRoute("download", "download/{id}", "~/_Download.aspx", true);
             routes.MapPageRoute("id", "{id}", "~/BIRequest/View.aspx", true);
-            routes.MapPageRoute("id-role", "{id}/{role}", "~/BIRequest/Admin.aspx", true);
+            routes.MapPageRoute("sponsor", "{id}/sponsor", "~/BIRequest/Sponsor.aspx", true);
+            routes.MapPageRoute("admin", "{id}/admin", "~/BIRequest/Admin.aspx", true);
         }
     }
 }

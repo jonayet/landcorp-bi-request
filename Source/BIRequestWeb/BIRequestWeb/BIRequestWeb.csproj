@@ -110,6 +110,7 @@
     <Folder Include="Scripts\locales\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BIRequest\Sponsor.aspx" />
     <Content Include="BIRequest\Admin.aspx" />
     <Content Include="BIRequest\View.aspx" />
     <Content Include="BIRequest\Create.aspx" />
@@ -209,6 +210,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BIRequest\Sponsor.aspx.cs">
+      <DependentUpon>Sponsor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BIRequest\Sponsor.aspx.designer.cs">
+      <DependentUpon>Sponsor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BIRequest\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

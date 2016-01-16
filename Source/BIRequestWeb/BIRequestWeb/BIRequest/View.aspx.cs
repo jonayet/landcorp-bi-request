@@ -54,7 +54,7 @@ namespace BiRequestWeb.BIRequest
             dateReviewed.Text = DataTransformer.ConvertDateToString(requestForm.DateReviewed);
             estimatedHours.Text = requestForm.EstimatedHours.ToString();
             businessCaseID.Text = requestForm.BusinessCaseId;
-            approvalComments.Text = requestForm.ApprovalComments;
+            adminComments.Text = requestForm.AdminComments;
         }
     }
 }

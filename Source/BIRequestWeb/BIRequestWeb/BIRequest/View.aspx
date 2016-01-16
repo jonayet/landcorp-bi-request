@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="additionalComments" class="col-md-3 control-label">Comments</label>
+                    <label for="comments" class="col-md-3 control-label">Comments</label>
                     <div class="col-md-9">
                         <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="comments" ReadOnly="True" class="form-control" Rows="4" />
                     </div>
@@ -141,9 +141,9 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="internalComments" class="col-md-3 control-label">Approval Comments</label>
+                    <label for="adminComments" class="col-md-3 control-label">Admin Comments</label>
                     <div class="col-md-9">
-                        <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="approvalComments" ReadOnly="True" class="form-control" Rows="3" />
+                        <asp:TextBox runat="server" TextMode="MultiLine" ClientIDMode="Static" ID="adminComments" ReadOnly="True" class="form-control" Rows="3" />
                     </div>
                 </div>
             </div>
