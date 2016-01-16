@@ -10,6 +10,6 @@
 namespace BiRequestWeb {
     
     
-    public partial class Downloads {
+    public partial class Download {
     }
 }

@@ -10,6 +10,13 @@ namespace BiRequestWeb.BIRequest
         private Repository _repo;
         protected void Page_Init(object sender, EventArgs e)
         {
+            //if (!HttpContext.Current.Request.Url.AbsolutePath.Contains("/bireq/"))
+            //{
+            //    Response.RedirectPermanent("bireq/requestor");
+            //}
+
+            //IsFinAdminUser
+
             _repo = new Repository();
             requestType.Items.AddRange(_repo.GetBiRequestTypes());
         }

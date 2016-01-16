@@ -10,12 +10,12 @@ namespace BiRequestWeb
             var settings = new FriendlyUrlSettings {AutoRedirectMode = RedirectMode.Permanent};
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("", "", "~/BIRequest/Create.aspx", true);
-            routes.MapPageRoute("download-empty", "download", "~/_Download.aspx", true);
-            routes.MapPageRoute("download", "download/{id}", "~/_Download.aspx", true);
-            routes.MapPageRoute("id", "{id}", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("download", "download", "~/_Download.aspx", true);
+            routes.MapPageRoute("download-id", "download/{id}", "~/_Download.aspx", true);
+            routes.MapPageRoute("create", "", "~/BIRequest/Create.aspx", true);
+            routes.MapPageRoute("view", "{id}", "~/BIRequest/View.aspx", true);
+            routes.MapPageRoute("fin-admin", "{id}/fin-admin", "~/BIRequest/FinAdmin.aspx", true);
             routes.MapPageRoute("sponsor", "{id}/sponsor", "~/BIRequest/Sponsor.aspx", true);
-            routes.MapPageRoute("admin", "{id}/admin", "~/BIRequest/Admin.aspx", true);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="BiRequestWeb.BIRequest.FinAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FinAdmin.aspx.cs" Inherits="BiRequestWeb.BIRequest.FinAdmin" %>
 
 <%-- ReSharper disable Html.IdNotResolved --%>
 <asp:Content ID="BiRequestForm" ContentPlaceHolderID="MainContent" runat="server">

@@ -1,1 +1,1 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="_Download.aspx.cs" Inherits="BiRequestWeb.Downloads" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="_Download.aspx.cs" Inherits="BiRequestWeb.Download" %>

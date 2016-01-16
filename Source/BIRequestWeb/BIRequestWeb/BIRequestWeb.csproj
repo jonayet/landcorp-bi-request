@@ -111,7 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BIRequest\Sponsor.aspx" />
-    <Content Include="BIRequest\Admin.aspx" />
+    <Content Include="BIRequest\FinAdmin.aspx" />
     <Content Include="BIRequest\View.aspx" />
     <Content Include="BIRequest\Create.aspx" />
     <Content Include="BirequestWebService.asmx" />
@@ -217,12 +217,12 @@
     <Compile Include="BIRequest\Sponsor.aspx.designer.cs">
       <DependentUpon>Sponsor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BIRequest\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="BIRequest\FinAdmin.aspx.cs">
+      <DependentUpon>FinAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BIRequest\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="BIRequest\FinAdmin.aspx.designer.cs">
+      <DependentUpon>FinAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="BIRequest\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
