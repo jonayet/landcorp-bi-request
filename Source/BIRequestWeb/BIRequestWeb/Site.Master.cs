@@ -20,11 +20,6 @@ namespace BiRequestWeb
         {
             SetSessionVariables();
             CheckPageAuthorisation();
-
-            //if (!HttpContext.Current.Request.Url.AbsolutePath.Contains("/bireq/"))
-            //{
-            //    Response.RedirectPermanent("bireq/requestor");
-            //}
         }
 
         protected void SetSessionVariables()
@@ -82,7 +77,7 @@ namespace BiRequestWeb
         protected string GetUserName(int appId)
         {
             //string userName = Regex.Replace(HttpContext.Current.User.Identity.Name, ".*\\\\(.*)", "$1", RegexOptions.None).ToUpper();
-            var userName = "BAILEYD";
+            var userName = "BAILEYD";//"FORDM";
 
             string queryUserName = userName;
 

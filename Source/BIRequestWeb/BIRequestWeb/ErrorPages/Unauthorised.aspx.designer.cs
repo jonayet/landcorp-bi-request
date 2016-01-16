@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
-namespace BiRequestWeb.ErrorPages
-{
-    public partial class Unauthorised
-    {
-
+namespace BiRequestWeb.ErrorPages {
+    
+    
+    public partial class Unauthorised {
+        
         /// <summary>
         /// Head1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// img_Unauthorised control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image img_Unauthorised;
-
+        
         /// <summary>
         /// lbl_Header control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Header;
-
+        
         /// <summary>
         /// lbl_Name control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Name;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// gv_AppOwners control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace BiRequestWeb.ErrorPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gv_AppOwners;
-
+        
         /// <summary>
         /// ds_AppOwners control.
         /// </summary>

@@ -8,10 +8,25 @@ namespace BiRequestWeb.BIRequest
     public partial class Sponsor : System.Web.UI.Page
     {
         private Repository _repo;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             _repo = new Repository();
             requestType.Items.AddRange(_repo.GetBiRequestTypes());
+
+            int userId;
+            if (int.TryParse(Session["UserId"].ToString(), out userId))
+            {
+                int requestId;
+                int.TryParse(Page.RouteData.Values["id"] as string, out requestId);
+                var requestForm = _repo.GetRequestForm(requestId);
+                if (requestForm.ExecutiveSponsorId == userId) return;
+                Response.RedirectPermanent("~/ErrorPages/Unauthorised.aspx?Page=" + Request.Url.PathAndQuery);
+                //var url = "~/";
+                //if (int.TryParse(Page.RouteData.Values["id"] as string, out requestId))
+                //    url += requestId;
+                //Response.RedirectPermanent(url);
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

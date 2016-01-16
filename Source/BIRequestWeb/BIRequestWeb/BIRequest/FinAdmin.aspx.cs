@@ -10,12 +10,17 @@ namespace BiRequestWeb.BIRequest
         private Repository _repo;
         protected void Page_Init(object sender, EventArgs e)
         {
-            //if (!HttpContext.Current.Request.Url.AbsolutePath.Contains("/bireq/"))
-            //{
-            //    Response.RedirectPermanent("bireq/requestor");
-            //}
-
-            //IsFinAdminUser
+            bool isFinAdminUser;
+            bool.TryParse(Session["IsFinAdminUser"].ToString(), out isFinAdminUser);
+            if (!isFinAdminUser)
+            {
+                Response.RedirectPermanent("~/ErrorPages/Unauthorised.aspx?Page=" + Request.Url.PathAndQuery);
+                //int requestId;
+                //var url = "~/";
+                //if (int.TryParse(Page.RouteData.Values["id"] as string, out requestId))
+                //    url += requestId;
+                //Response.RedirectPermanent(url);
+            }
 
             _repo = new Repository();
             requestType.Items.AddRange(_repo.GetBiRequestTypes());

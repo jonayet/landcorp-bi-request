@@ -133,6 +133,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\twitter-typeahead.css" />
     <Content Include="Content\typeahead.css" />
+    <Content Include="Images\404.jpg" />
+    <Content Include="Images\Cancel.png" />
+    <Content Include="Images\Delete.png" />
+    <Content Include="Images\Edit.png" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\Oops.jpg" />
+    <Content Include="Images\Save.png" />
+    <Content Include="Images\Unauthorised.jpg" />
     <Content Include="_Download.aspx" />
     <Content Include="ErrorPages\404.aspx" />
     <Content Include="ErrorPages\Oops.aspx" />

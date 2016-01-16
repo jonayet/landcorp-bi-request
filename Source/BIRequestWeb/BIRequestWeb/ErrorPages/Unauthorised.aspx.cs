@@ -29,9 +29,9 @@ namespace BiRequestWeb.ErrorPages
                 SqlParameter pErrorString = new SqlParameter("@ErrorString", SqlDbType.NVarChar, 4000);
                 SqlParameter pUserName = new SqlParameter("@UserName", SqlDbType.NVarChar, 50);
 
-                pAppId.Value = WebConfigurationManager.AppSettings["AppId"].ToString();
+                pAppId.Value = WebConfigurationManager.AppSettings["AppId"];
                 pErrorType.Value = "Unauthorised";
-                pErrorString.Value = Request["Page"].ToString();
+                pErrorString.Value = Request["Page"];
                 pUserName.Value = Regex.Replace(HttpContext.Current.User.Identity.Name, ".*\\\\(.*)", "$1", RegexOptions.None).ToUpper();
 
                 sqlCmd.Parameters.Add(pAppId);
@@ -51,7 +51,7 @@ namespace BiRequestWeb.ErrorPages
 
             if (Session["FullName"] != null)
             {
-                lbl_Name.Text = "Hi " + Session["FullName"].ToString() + ",";
+                lbl_Name.Text = "Hi " + Session["FullName"] + ",";
             }
             else
             {
@@ -63,9 +63,9 @@ namespace BiRequestWeb.ErrorPages
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                HyperLink hpl_MailTo = (HyperLink)e.Row.FindControl("hpl_MailTo");
-                HiddenField hf_EmailAddress = (HiddenField)e.Row.FindControl("hf_EmailAddress");
-                hpl_MailTo.NavigateUrl = "mailto:" + hf_EmailAddress.Value + "?Subject=" + Session["AppName"].ToString() + " Access";
+                HyperLink hplMailTo = (HyperLink)e.Row.FindControl("hpl_MailTo");
+                HiddenField hfEmailAddress = (HiddenField)e.Row.FindControl("hf_EmailAddress");
+                hplMailTo.NavigateUrl = "mailto:" + hfEmailAddress.Value + "?Subject=" + Session["AppName"] + " Access";
             }
         }
     }
